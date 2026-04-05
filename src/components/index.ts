@@ -1,4 +1,4 @@
-export { StatsBar } from './sections'
+export { default as StatsBar } from './StatsBar'
 export { AboutSection } from './sections'
 export { GMBSection } from './sections'
 export { WhatsAppSection } from './sections'
