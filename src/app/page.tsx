@@ -1,10 +1,9 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import StatsBar from '@/components/StatsBar'
-import MenuSection from '@/components/MenuSection'
-// import Footer from '@/components/Footer'
-// import { AboutSection, GMBSection, WhatsAppSection, ReviewsSection } from '@/components/sections'
-// import WhatsAppFloat from '@/components/WhatsAppFloat'
+import dynamic from 'next/dynamic'
+
+const MenuSection = dynamic(() => import('@/components/MenuSection'), { ssr: false })
 
 export default function Home() {
   return (
