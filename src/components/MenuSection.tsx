@@ -1,7 +1,6 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-// Fixed: Removed Image components to fix React hydration error #418
 const WA = (plato: string) =>
   `https://wa.me/573052015683?text=${encodeURIComponent(`Hola, quiero ordenar: ${plato}`)}`
 
@@ -59,49 +58,63 @@ const ACARTA = [
 ]
 
 const PIZZAS = [
-  // Clásicas
   { name: 'Pizza Hawaiana (Clásica)',      price: '$32.000', base: 'Personal',     extras: ['Pequeña +$10.000', 'Mediana +$30.000', 'Maxi +$43.000'],  img: '/images/plato-bandeja.jpg' },
   { name: 'Pizza Carnes (Clásica)',        price: '$32.000', base: 'Personal',     extras: ['Pequeña +$10.000', 'Mediana +$30.000', 'Maxi +$43.000'],  img: '/images/plato-almuerzo.jpg' },
   { name: 'Pizza Pepperoni (Clásica)',     price: '$32.000', base: 'Personal',     extras: ['Pequeña +$10.000', 'Mediana +$30.000', 'Maxi +$43.000'],  img: '/images/plato-bandeja.jpg' },
   { name: 'Pizza Mexicana (Clásica)',      price: '$32.000', base: 'Personal',     extras: ['Pequeña +$10.000', 'Mediana +$30.000', 'Maxi +$43.000'],  img: '/images/plato-almuerzo.jpg' },
   { name: 'Pizza Napolitana (Clásica)',    price: '$32.000', base: 'Personal',     extras: ['Pequeña +$10.000', 'Mediana +$30.000', 'Maxi +$43.000'],  img: '/images/plato-bandeja.jpg' },
-  // Especialidades
   { name: 'Pizza Marinera (Especial)',     price: '$35.000', base: 'Personal',     extras: ['Pequeña +$10.000', 'Mediana +$30.000', 'Maxi +$50.000'],  img: '/images/plato-almuerzo.jpg' },
   { name: 'Pizza Ritmo Especial',          price: '$35.000', base: 'Personal',     extras: ['Pequeña +$10.000', 'Mediana +$30.000', 'Maxi +$50.000'],  img: '/images/plato-bandeja.jpg' },
   { name: 'Pizza Frutas (Especial)',       price: '$35.000', base: 'Personal',     extras: ['Pequeña +$10.000', 'Mediana +$30.000', 'Maxi +$50.000'],  img: '/images/plato-almuerzo.jpg' },
   { name: 'Pizza Vegetariana (Especial)',  price: '$35.000', base: 'Personal',     extras: ['Pequeña +$10.000', 'Mediana +$30.000', 'Maxi +$50.000'],  img: '/images/plato-bandeja.jpg' },
-  // Otros
   { name: 'Panzerotti',                    price: '$25.000', base: 'Precio fijo',  extras: [],                                                        img: '/images/plato-almuerzo.jpg' },
 ]
 
 const BEBIDAS = [
-  // Jugos y agua
   { name: 'Agua',                      price: '$7.000',   base: 'Vaso',        extras: ['Botella +$3.000'],                       img: '/images/plato-bandeja.jpg' },
   { name: 'Leche',                     price: '$8.000',   base: 'Vaso',        extras: ['Botella +$3.000'],                       img: '/images/plato-almuerzo.jpg' },
   { name: 'Jugo Natural',              price: '$7.000',   base: 'Vaso',        extras: ['Vaso grande +$2.000'],                   img: '/images/plato-bandeja.jpg' },
-  // Limonadas
   { name: 'Limonada Natural',          price: '$7.000',   base: 'Jarra',       extras: ['Vaso individual +$2.000'],               img: '/images/plato-almuerzo.jpg' },
   { name: 'Limonada de Coco',          price: '$10.000',  base: 'Jarra',       extras: ['Vaso individual +$3.000'],               img: '/images/plato-bandeja.jpg' },
   { name: 'Limonada de Hierbabuena',   price: '$10.000',  base: 'Jarra',       extras: ['Vaso individual +$3.000'],               img: '/images/plato-almuerzo.jpg' },
-  // Bebidas complementarias
   { name: 'Gaseosa',                   price: '$2.500',   base: 'Lata/Vaso',   extras: ['Botella 2L +$5.000'],                    img: '/images/plato-bandeja.jpg' },
   { name: 'Agua Aromática (Té)',       price: '$2.000',   base: 'Taza',        extras: ['Con leche +$1.000'],                    img: '/images/plato-almuerzo.jpg' },
-  // Cervezas
   { name: 'Cerveza Nacional',          price: '$4.500',   base: 'Precio fijo', extras: [],                                        img: '/images/plato-bandeja.jpg' },
   { name: 'Cerveza Importada',         price: '$6.000',   base: 'Precio fijo', extras: [],                                        img: '/images/plato-almuerzo.jpg' },
-  // Cócteles
   { name: 'Margarita',                 price: '$20.000',  base: 'Cóctel',      extras: ['Premium +$5.000'],                       img: '/images/plato-bandeja.jpg' },
   { name: 'Piña Colada',               price: '$20.000',  base: 'Cóctel',      extras: ['Premium +$5.000'],                       img: '/images/plato-almuerzo.jpg' },
   { name: 'Daiquiri',                  price: '$20.000',  base: 'Cóctel',      extras: ['Premium +$5.000'],                       img: '/images/plato-bandeja.jpg' },
   { name: 'Amor en Ritmo',             price: '$20.000',  base: 'Cóctel',      extras: ['Premium +$5.000'],                       img: '/images/plato-almuerzo.jpg' },
-  // Sangría
   { name: 'Sangría',                   price: '$40.000',  base: 'Jarra',       extras: ['Vaso +$8.000'],                          img: '/images/plato-bandeja.jpg' },
 ]
 
 const TABS = ['Desayuno', 'A la Carta', 'Almuerzo', 'Pizzas', 'Bebidas']
+const TAB_HASHES = ['desayuno', 'acarta', 'almuerzo', 'pizzas', 'bebidas']
 
 export default function MenuSection() {
   const [active, setActive] = useState(0)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    // Get hash from URL on mount
+    const hash = window.location.hash.slice(1)
+    const tabIndex = TAB_HASHES.indexOf(hash)
+    if (tabIndex !== -1) {
+      setActive(tabIndex)
+    }
+  }, [])
+
+  const handleTabClick = (index: number) => {
+    setActive(index)
+    // Update URL hash
+    window.location.hash = TAB_HASHES[index]
+  }
+
+  // Avoid hydration mismatch: only render after mount
+  if (!mounted) {
+    return <section id="menu" className="py-14 px-8 max-w-7xl mx-auto reveal"></section>
+  }
 
   return (
     <section id="menu" className="py-14 px-8 max-w-7xl mx-auto reveal">
@@ -114,7 +127,7 @@ export default function MenuSection() {
         {TABS.map((t, i) => (
           <button
             key={t}
-            onClick={() => setActive(i)}
+            onClick={() => handleTabClick(i)}
             className={`text-[12px] px-5 py-2 rounded-sm border tracking-wide transition-all duration-200 ${
               active === i
                 ? 'bg-[#D4A017] text-[#1a0f00] border-[#D4A017] font-medium'
