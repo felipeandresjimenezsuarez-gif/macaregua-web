@@ -1,6 +1,6 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
-import { StatsBar } from '@/components/StatsBar'
+import StatsBar from '@/components/StatsBar'
 import MenuSection from '@/components/MenuSection'
 import { AboutSection, GMBSection, WhatsAppSection, ReviewsSection, Footer } from '@/components/sections'
 import WhatsAppFloat from '@/components/WhatsAppFloat'

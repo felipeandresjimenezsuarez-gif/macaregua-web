@@ -1,5 +1,5 @@
 // ─── StatsBar ────────────────────────────────────────────────────────────────
-export function StatsBar() {
+export default function StatsBar() {
   const stats = [
     { n: '4.4★', l: 'Google Reviews' },
     { n: '83',   l: 'Reseñas verificadas' },
