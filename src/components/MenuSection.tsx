@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 const WA = (plato: string) =>
   `https://wa.me/573052015683?text=${encodeURIComponent(`Hola, quiero ordenar: ${plato}`)}`
@@ -157,7 +158,9 @@ export default function MenuSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
             {DESAYUNOS.map((d) => (
               <div key={d.name} className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-                <div className="w-14 h-14 rounded flex-shrink-0 bg-[#222]"></div>
+                <div className="w-14 h-14 rounded flex-shrink-0 bg-[#222] overflow-hidden relative">
+                  <Image src={d.img} alt={d.name} fill className="object-cover" sizes="56px" />
+                </div>
                 <div className="flex-1 min-w-0">
                   <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{d.name}</div>
                   <div className="flex gap-1.5 flex-wrap mb-2">
@@ -200,7 +203,9 @@ export default function MenuSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
             {ACARTA.map((d) => (
               <div key={d.name} className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-                <div className="w-14 h-14 rounded flex-shrink-0 bg-[#222]"></div>
+                <div className="w-14 h-14 rounded flex-shrink-0 bg-[#222] overflow-hidden relative">
+                  <Image src={d.img} alt={d.name} fill className="object-cover" sizes="56px" />
+                </div>
                 <div className="flex-1 min-w-0">
                   <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{d.name}</div>
                   <div className="flex gap-1.5 flex-wrap mb-2">
@@ -244,7 +249,9 @@ export default function MenuSection() {
                   ★ Más popular
                 </div>
               )}
-              <div className="h-36 w-full bg-[#222]"></div>
+              <div className="h-36 w-full bg-[#222] relative overflow-hidden">
+                <Image src={p.img} alt={p.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+              </div>
               <div className="p-5 pt-4">
                 <h3 className="font-serif text-[19px] font-normal text-[#f0f0f0] mb-2 mt-2 leading-snug">{p.name}</h3>
                 <p className="text-[12px] font-light text-[#555] leading-relaxed mb-4">{p.desc}</p>
