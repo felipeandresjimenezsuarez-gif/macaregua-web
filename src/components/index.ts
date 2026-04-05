@@ -1,0 +1,7 @@
+export { StatsBar } from './sections'
+export { AboutSection } from './sections'
+export { GMBSection } from './sections'
+export { WhatsAppSection } from './sections'
+export { ReviewsSection } from './sections'
+export { Footer } from './sections'
+export { WhatsAppFloat } from './sections'
