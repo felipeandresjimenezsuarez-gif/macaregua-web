@@ -11,7 +11,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <StatsBar />
-      <MenuSection />
+      {/* <MenuSection /> */}
       {/* <AboutSection />
       <GMBSection />
       <WhatsAppSection />
