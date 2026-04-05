@@ -2,7 +2,7 @@ import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import StatsBar from '@/components/StatsBar'
 import MenuSection from '@/components/MenuSection'
-import Footer from '@/components/Footer'
+// import Footer from '@/components/Footer'
 // import { AboutSection, GMBSection, WhatsAppSection, ReviewsSection } from '@/components/sections'
 // import WhatsAppFloat from '@/components/WhatsAppFloat'
 
@@ -13,7 +13,6 @@ export default function Home() {
       <Hero />
       <StatsBar />
       <MenuSection />
-      <Footer />
       {/* <AboutSection />
       <GMBSection />
       <WhatsAppSection />
