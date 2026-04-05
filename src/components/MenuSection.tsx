@@ -118,11 +118,11 @@ export default function MenuSection() {
 
   // Avoid hydration mismatch: only render after mount
   if (!mounted) {
-    return <section id="menu" className="py-14 px-8 max-w-7xl mx-auto reveal"></section>
+    return <section id="menu" className="py-14 px-8 max-w-7xl mx-auto reveal visible"></section>
   }
 
   return (
-    <section id="menu" className="py-14 px-8 max-w-7xl mx-auto reveal">
+    <section id="menu" className="py-14 px-8 max-w-7xl mx-auto reveal visible">
       <p className="eyebrow">Menú completo</p>
       <h2 className="font-serif text-[32px] font-normal text-[#f0f0f0] leading-snug mb-2">¿Qué se te antoja?</h2>
       <p className="text-[13px] font-light text-[#444] mb-8">El menú cambia según la hora · Ordena directo por WhatsApp · IVA incluido</p>
