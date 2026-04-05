@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 
+// Fixed: Removed Image components to fix React hydration error #418
 const WA = (plato: string) =>
   `https://wa.me/573052015683?text=${encodeURIComponent(`Hola, quiero ordenar: ${plato}`)}`
 
