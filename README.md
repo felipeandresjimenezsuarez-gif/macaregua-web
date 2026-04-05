@@ -150,3 +150,8 @@ NEXT_PUBLIC_WA_NUMBER=573052015683
 
 ## Contacto técnico
 Desarrollado por Felipe Jiménez · Bucaramanga, Santander
+
+
+## 🚀 Deployment Update
+Fixed Next.js 14 TypeScript configuration for proper Vercel deployment.
+tsconfig.json updated with correct compiler options.
