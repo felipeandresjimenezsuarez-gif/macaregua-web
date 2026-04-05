@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import Image from 'next/image'
 
 const WA = (plato: string) =>
   `https://wa.me/573052015683?text=${encodeURIComponent(`Hola, quiero ordenar: ${plato}`)}`
@@ -139,9 +138,7 @@ export default function MenuSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
             {DESAYUNOS.map((d) => (
               <div key={d.name} className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-                <div className="relative w-14 h-14 rounded flex-shrink-0 overflow-hidden">
-                  <Image src={d.img} alt={d.name} fill className="object-cover" />
-                </div>
+                <div className="w-14 h-14 rounded flex-shrink-0 bg-[#222]"></div>
                 <div className="flex-1 min-w-0">
                   <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{d.name}</div>
                   <div className="flex gap-1.5 flex-wrap mb-2">
@@ -184,9 +181,7 @@ export default function MenuSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
             {ACARTA.map((d) => (
               <div key={d.name} className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-                <div className="relative w-14 h-14 rounded flex-shrink-0 overflow-hidden">
-                  <Image src={d.img} alt={d.name} fill className="object-cover" />
-                </div>
+                <div className="w-14 h-14 rounded flex-shrink-0 bg-[#222]"></div>
                 <div className="flex-1 min-w-0">
                   <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{d.name}</div>
                   <div className="flex gap-1.5 flex-wrap mb-2">
@@ -230,10 +225,7 @@ export default function MenuSection() {
                   ★ Más popular
                 </div>
               )}
-              <div className="relative h-36 w-full">
-                <Image src={p.img} alt={p.name} fill className="object-cover" />
-                <div className="absolute inset-0 bg-[#0d0d0d]/40" />
-              </div>
+              <div className="h-36 w-full bg-[#222]"></div>
               <div className="p-5 pt-4">
                 <h3 className="font-serif text-[19px] font-normal text-[#f0f0f0] mb-2 mt-2 leading-snug">{p.name}</h3>
                 <p className="text-[12px] font-light text-[#555] leading-relaxed mb-4">{p.desc}</p>
@@ -262,9 +254,7 @@ export default function MenuSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
           {PIZZAS.map((p) => (
             <div key={p.name} className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-              <div className="relative w-14 h-14 rounded flex-shrink-0 overflow-hidden">
-                <Image src={p.img} alt={p.name} fill className="object-cover" />
-              </div>
+              <div className="w-14 h-14 rounded flex-shrink-0 bg-[#222]"></div>
               <div className="flex-1 min-w-0">
                 <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{p.name}</div>
                 <div className="flex gap-1.5 flex-wrap mb-2">
@@ -295,9 +285,7 @@ export default function MenuSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
           {BEBIDAS.map((b) => (
             <div key={b.name} className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-              <div className="relative w-14 h-14 rounded flex-shrink-0 overflow-hidden">
-                <Image src={b.img} alt={b.name} fill className="object-cover" />
-              </div>
+              <div className="w-14 h-14 rounded flex-shrink-0 bg-[#222]"></div>
               <div className="flex-1 min-w-0">
                 <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{b.name}</div>
                 <div className="flex gap-1.5 flex-wrap mb-2">
