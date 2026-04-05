@@ -14,12 +14,12 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
-            src="/images/LOGO_macaregua_WHITE.png"
+            src="/images/logo-macaregua.png"
             alt="Macaregua Restaurante"
-            width={140}
-            height={48}
+            width={120}
+            height={40}
             priority
-            className="object-contain"
+            className="object-contain h-[40px] w-auto"
           />
         </Link>
 
