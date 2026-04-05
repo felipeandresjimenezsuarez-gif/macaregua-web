@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Merriweather, DM_Sans } from 'next/font/google'
+import ScrollReveal from '@/components/ScrollReveal'
 import './globals.css'
 
 const merriweather = Merriweather({
@@ -72,7 +73,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${merriweather.variable} ${dmSans.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <ScrollReveal />
+        {children}
+      </body>
     </html>
   )
 }
