@@ -6,7 +6,7 @@ export function AboutSection() {
     <section id="nosotros" className="py-14 px-8 bg-[#090909]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
         <div className="relative h-64 rounded border border-[#1a1a1a] overflow-hidden">
-          <Image src="/images/gallery-pollo-plancha.png" alt="Macaregua restaurante" fill className="object-cover" />
+          <Image src="/images/gallery-pollo-plancha.jpg" alt="Macaregua restaurante" fill className="object-cover" />
           <div className="absolute inset-0 bg-[#0d0d0d]/30" />
         </div>
         <div>
