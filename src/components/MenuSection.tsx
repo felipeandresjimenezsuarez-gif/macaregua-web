@@ -94,6 +94,41 @@ const BEBIDAS = [
 const TABS = ['Desayuno', 'A la Carta', 'Almuerzo', 'Pizzas', 'Bebidas']
 const TAB_HASHES = ['desayuno', 'acarta', 'almuerzo', 'pizzas', 'bebidas']
 
+// ─── Lógica de horario ─────────────────────────────────────────────────────────
+// Horario: Lunes–Sábado 6:30 AM – 10:30 PM
+
+type MealInfo = {
+  tabIndex: number
+  label: string
+  until: string
+  open: boolean
+}
+
+function getMealByTime(): MealInfo {
+  const now = new Date()
+  const h = now.getHours()
+  const m = now.getMinutes()
+  const t = h * 60 + m // minutos desde medianoche
+
+  const OPEN  = 6 * 60 + 30   //  6:30
+  const END_D = 11 * 60        // 11:00
+  const END_A = 15 * 60 + 30  // 15:30
+  const CLOSE = 22 * 60 + 30  // 22:30
+
+  if (t < OPEN || t >= CLOSE) {
+    // Cerrado — mostrar lo que abre primero
+    return { tabIndex: 0, label: 'Abrimos a las 6:30 AM', until: '6:30 AM', open: false }
+  }
+  if (t < END_D) {
+    return { tabIndex: 0, label: 'Desayunos', until: '11:00 AM', open: true }
+  }
+  if (t < END_A) {
+    return { tabIndex: 2, label: 'Almuerzos', until: '3:30 PM', open: true }
+  }
+  // Tarde-noche → Pizzas y A la Carta
+  return { tabIndex: 3, label: 'Pizzas y platos a la carta', until: '10:30 PM', open: true }
+}
+
 // ─── Íconos ────────────────────────────────────────────────────────────────────
 
 function PizzaIcon() {
@@ -162,18 +197,32 @@ function FotoThumb({ src, alt }: { src: string; alt: string }) {
 export default function MenuSection() {
   const [active, setActive] = useState(0)
   const [mounted, setMounted] = useState(false)
+  const [meal, setMeal] = useState<MealInfo | null>(null)
+  const [userChose, setUserChose] = useState(false) // true si el usuario cambió el tab manualmente
 
   useEffect(() => {
     setMounted(true)
     const section = document.getElementById('menu')
     if (section) section.classList.add('visible')
+
+    // Si hay hash en la URL, respetarlo (enlace directo a un tab)
     const hash = window.location.hash.slice(1)
-    const tabIndex = TAB_HASHES.indexOf(hash)
-    if (tabIndex !== -1) setActive(tabIndex)
+    const hashIndex = TAB_HASHES.indexOf(hash)
+    if (hashIndex !== -1) {
+      setActive(hashIndex)
+      setUserChose(true)
+      return
+    }
+
+    // Sin hash → seleccionar tab por horario
+    const mealInfo = getMealByTime()
+    setMeal(mealInfo)
+    setActive(mealInfo.tabIndex)
   }, [])
 
   const handleTabClick = (index: number) => {
     setActive(index)
+    setUserChose(true)
     window.location.hash = TAB_HASHES[index]
   }
 
@@ -185,7 +234,22 @@ export default function MenuSection() {
     <section id="menu" className="py-14 px-8 max-w-7xl mx-auto reveal visible">
       <p className="eyebrow">Menú completo</p>
       <h2 className="font-serif text-[32px] font-normal text-[#f0f0f0] leading-snug mb-2">¿Qué se te antoja?</h2>
-      <p className="text-[13px] font-light text-[#444] mb-8">El menú cambia según la hora · Ordena directo por WhatsApp · IVA incluido</p>
+      <p className="text-[13px] font-light text-[#444] mb-4">Ordena directo por WhatsApp · IVA incluido</p>
+
+      {/* Banner de horario — solo visible si no eligió tab manualmente */}
+      {meal && !userChose && (
+        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-sm mb-6 text-[11px] tracking-wide ${
+          meal.open
+            ? 'bg-[#D4A01715] border border-[#D4A01730] text-[#D4A017]'
+            : 'bg-[#ffffff08] border border-[#ffffff10] text-[#444]'
+        }`}>
+          <span className="text-[8px]">{meal.open ? '●' : '○'}</span>
+          {meal.open
+            ? <>Sirviendo ahora: <strong className="font-medium">{meal.label}</strong> · Disponible hasta las {meal.until}</>
+            : <>{meal.label}</>
+          }
+        </div>
+      )}
 
       {/* Tabs */}
       <div className="flex gap-2 flex-wrap mb-8">
