@@ -33,7 +33,7 @@ const ALMUERZOS = [
 
 const DESAYUNOS = [
   { name: 'Bandeja Asada Pechuga Cerdo', price: '$20.000', base: 'Precio base', extras: [],                                          img: '/images/foto-pollo-plancha.jpg' },
-  { name: 'Caldo de Res Especial',       price: '$30.000', base: 'Con bebida',  extras: ['Sin bebida −$3.000'],                        img: '/images/foto-caldo-costilla.jpg' },
+  { name: 'Caldo de Res Especial',       price: '$30.000', base: 'Con bebida',  extras: ['Sin bebida −$3.000'],                        img: '/images/foto-caldo-res.jpg' },
   { name: 'Caldo de Costilla',           price: '$33.000', base: 'Con bebida',  extras: ['Sin bebida −$3.000'],                        img: '/images/foto-caldo-costilla.jpg' },
   { name: 'Caldo con Huevo y Arepa',     price: '$18.000', base: 'Con bebida',  extras: ['Sin bebida −$2.000', '+ Queso +$2.000'],     img: '/images/foto-caldo-huevo.jpg' },
   { name: 'Caldo de Pollo',              price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$2.000', '+ Huevos +$3.000'],    img: '/images/foto-caldo-huevo.jpg' },
@@ -46,13 +46,13 @@ const DESAYUNOS = [
 ]
 
 const ACARTA = [
-  { name: 'Chatas',               price: '$42.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-bandeja-paisa.jpg' },
+  { name: 'Chatas',               price: '$42.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-chatas.jpg' },
   { name: 'Carne a la Plancha',   price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pollo-plancha.jpg' },
   { name: 'Pechuga a la Plancha', price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pollo-plancha.jpg' },
-  { name: 'Pechuga Gratinada',    price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pollo-plancha.jpg' },
+  { name: 'Pechuga Gratinada',    price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pechuga-gratinada.jpg' },
   { name: 'Cerdo a la Plancha',   price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-bandeja-paisa.jpg' },
-  { name: 'Sobrebarriga',         price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-bandeja-paisa.jpg' },
-  { name: 'Mojarra Frita',        price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-cazuela-mariscos.jpg' },
+  { name: 'Sobrebarriga',         price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-sobrebarriga.jpg' },
+  { name: 'Mojarra Frita',        price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-mojarra.jpg' },
   { name: 'Bagre Frito',          price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-cazuela-mariscos.jpg' },
   { name: 'Bagre Sudado',         price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-cazuela-mariscos.jpg' },
   { name: 'Cazuela Mariscos',     price: '$32.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-cazuela-mariscos.jpg' },
