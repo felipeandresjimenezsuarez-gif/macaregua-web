@@ -147,6 +147,19 @@ function getMealByTime(): MealInfo {
   return { tabIndex: 3, label: 'Pizzas y platos a la carta', until: '10:30 PM', open: true }
 }
 
+function isBreakfastHour(): boolean {
+  const now = new Date()
+  const t = now.getHours() * 60 + now.getMinutes()
+  return t >= 6 * 60 + 30 && t < 11 * 60 + 30
+}
+
+// 0=Desayuno 1=ACarta 2=Almuerzo 3=Pizzas 4=Bebidas 5=Otros
+function isTabAvailable(tabIndex: number, breakfast: boolean): boolean {
+  if (tabIndex === 4) return true         // Bebidas — siempre
+  if (breakfast) return tabIndex <= 1     // Desayuno + A la Carta
+  return tabIndex !== 0                   // Todo menos Desayuno
+}
+
 // ─── Íconos ────────────────────────────────────────────────────────────────────
 
 function PizzaIcon() {
@@ -243,11 +256,11 @@ function PlatoCard({ name, price, base, extras, img, waUrl }: {
 export default function MenuSection() {
   const [active, setActive] = useState(0)
   const [mounted, setMounted] = useState(false)
-  const [meal, setMeal] = useState<MealInfo | null>(null)
-  const [userChose, setUserChose] = useState(false) // true si el usuario cambió el tab manualmente
+  const [isBreakfast, setIsBreakfast] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    setIsBreakfast(isBreakfastHour())
     const section = document.getElementById('menu')
     if (section) section.classList.add('visible')
 
@@ -256,19 +269,15 @@ export default function MenuSection() {
     const hashIndex = TAB_HASHES.indexOf(hash)
     if (hashIndex !== -1) {
       setActive(hashIndex)
-      setUserChose(true)
       return
     }
 
     // Sin hash → seleccionar tab por horario
-    const mealInfo = getMealByTime()
-    setMeal(mealInfo)
-    setActive(mealInfo.tabIndex)
+    setActive(getMealByTime().tabIndex)
   }, [])
 
   const handleTabClick = (index: number) => {
     setActive(index)
-    setUserChose(true)
     window.location.hash = TAB_HASHES[index]
   }
 
@@ -282,41 +291,55 @@ export default function MenuSection() {
       <h2 className="font-serif text-[32px] font-normal text-[#f0f0f0] leading-snug mb-2">¿Qué se te antoja?</h2>
       <p className="text-[13px] font-light text-[#444] mb-4">Ordena directo por WhatsApp · IVA incluido</p>
 
-      {/* Banner de horario — solo visible si no eligió tab manualmente */}
-      {meal && !userChose && (
-        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-sm mb-6 text-[11px] tracking-wide ${
-          meal.open
-            ? 'bg-[#D4A01715] border border-[#D4A01730] text-[#D4A017]'
-            : 'bg-[#ffffff08] border border-[#ffffff10] text-[#444]'
+      {/* Banner de disponibilidad horaria */}
+      {mounted && (
+        <div className={`flex items-start gap-3 px-4 py-3 rounded-sm mb-6 text-[12px] leading-relaxed ${
+          isBreakfast
+            ? 'bg-[#D4A01712] border border-[#D4A01730] text-[#b8880f]'
+            : 'bg-[#0e1e0e] border border-[#1e3a1e] text-[#5a9e5a]'
         }`}>
-          <span className="text-[8px]">{meal.open ? '●' : '○'}</span>
-          {meal.open
-            ? <>Sirviendo ahora: <strong className="font-medium">{meal.label}</strong> · Disponible hasta las {meal.until}</>
-            : <>{meal.label}</>
-          }
+          <span className="text-[16px] leading-none mt-px flex-shrink-0">{isBreakfast ? '☕' : '🍽️'}</span>
+          <span>
+            {isBreakfast
+              ? 'Estamos en horario de Desayunos. Los platos de Almuerzo, Otros y Pizzas estarán disponibles desde las 11:30 AM.'
+              : 'Almuerzos, Pizzas y Otros disponibles ahora. Los desayunos regresan mañana a las 6:00 AM.'
+            }
+          </span>
         </div>
       )}
 
       {/* Tabs */}
       <div className="flex gap-2 flex-wrap mb-8">
-        {TABS.map((t, i) => (
-          <button
-            key={t}
-            onClick={() => handleTabClick(i)}
-            className={`cursor-pointer text-[12px] px-5 py-2 rounded-sm border tracking-wide transition-all duration-200 ${
-              active === i
-                ? 'bg-[#D4A017] text-[#1a0f00] border-[#D4A017] font-medium'
-                : 'bg-transparent text-[#555] border-[#222] hover:border-[#D4A017] hover:text-[#D4A017]'
-            }`}
-          >
-            {t}
-          </button>
-        ))}
+        {TABS.map((t, i) => {
+          const available = isTabAvailable(i, isBreakfast)
+          return (
+            <button
+              key={t}
+              onClick={() => handleTabClick(i)}
+              className={`cursor-pointer text-[12px] px-5 py-2 rounded-sm border tracking-wide transition-all duration-200 ${
+                active === i
+                  ? 'bg-[#D4A017] text-[#1a0f00] border-[#D4A017] font-medium'
+                  : available
+                    ? 'bg-transparent text-[#555] border-[#222] hover:border-[#D4A017] hover:text-[#D4A017]'
+                    : 'bg-transparent text-[#2e2e2e] border-[#181818] hover:border-[#2a2a2a] hover:text-[#3a3a3a]'
+              }`}
+            >
+              {t}
+            </button>
+          )
+        })}
       </div>
 
       {/* ── DESAYUNOS ── */}
       {active === 0 && (
         <div>
+          {!isTabAvailable(0, isBreakfast) && (
+            <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
+              <span>⏰</span>
+              <span>No disponible por ahora — Los desayunos regresan mañana a las 6:00 AM</span>
+            </div>
+          )}
+          <div className={isTabAvailable(0, isBreakfast) ? '' : 'opacity-70 pointer-events-none select-none'}>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
             <p className="text-[12px] font-light text-[#555] leading-relaxed">
@@ -332,6 +355,7 @@ export default function MenuSection() {
           <p className="text-[11px] font-light text-[#333] text-center mt-5 tracking-wide">
             * Precios sujetos a cambio · Los extras se confirman al ordenar por WhatsApp
           </p>
+          </div>
         </div>
       )}
 
@@ -355,7 +379,14 @@ export default function MenuSection() {
 
       {/* ── ALMUERZOS ── */}
       {active === 2 && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          {!isTabAvailable(2, isBreakfast) && (
+            <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
+              <span>⏰</span>
+              <span>No disponible por ahora — Los almuerzos están disponibles desde las 11:30 AM</span>
+            </div>
+          )}
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${isTabAvailable(2, isBreakfast) ? '' : 'opacity-70 pointer-events-none select-none'}`}>
           {ALMUERZOS.map((p) => (
             <div key={p.name}
               className={`relative rounded overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
@@ -396,12 +427,20 @@ export default function MenuSection() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       )}
 
       {/* ── PIZZAS ── */}
       {active === 3 && (
         <div>
+          {!isTabAvailable(3, isBreakfast) && (
+            <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
+              <span>⏰</span>
+              <span>No disponible por ahora — Las pizzas están disponibles desde las 11:30 AM</span>
+            </div>
+          )}
+          <div className={isTabAvailable(3, isBreakfast) ? '' : 'opacity-70 pointer-events-none select-none'}>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
             <p className="text-[12px] font-light text-[#555] leading-relaxed">
@@ -432,12 +471,20 @@ export default function MenuSection() {
               </div>
             ))}
           </div>
+          </div>
         </div>
       )}
 
       {/* ── OTROS ── */}
       {active === 5 && (
         <div>
+          {!isTabAvailable(5, isBreakfast) && (
+            <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
+              <span>⏰</span>
+              <span>No disponible por ahora — Pinchos, hamburguesas y más están disponibles desde las 11:30 AM</span>
+            </div>
+          )}
+          <div className={isTabAvailable(5, isBreakfast) ? '' : 'opacity-70 pointer-events-none select-none'}>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
             <p className="text-[12px] font-light text-[#555] leading-relaxed">
@@ -453,6 +500,7 @@ export default function MenuSection() {
           <p className="text-[11px] font-light text-[#333] text-center mt-5 tracking-wide">
             * Precios sujetos a cambio · Los extras se confirman al ordenar por WhatsApp
           </p>
+          </div>
         </div>
       )}
 
