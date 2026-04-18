@@ -19,6 +19,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://macaregua.com'),
   title: 'Restaurante Macaregua | Comida Santandereana en Chimita · Domicilios Bucaramanga',
   description:
     'Restaurante Macaregua — cocina santandereana auténtica en Vía Chimita Km 1, Girón. Almuerzos ejecutivos, pinchos, hamburguesas y domicilios a Bucaramanga. Abierto todos los días hasta las 11 PM.',
