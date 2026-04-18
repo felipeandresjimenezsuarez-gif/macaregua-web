@@ -66,7 +66,7 @@ export default function Hero() {
         <div className={`w-10 h-px bg-[#D4A017] mx-auto my-5 transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
              style={{ transitionDelay: '350ms' }} />
 
-        <p className={`text-[11px] font-light text-[#555] tracking-[0.16em] uppercase mb-9 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        <p className={`text-[11px] font-light text-white tracking-[0.16em] uppercase mb-9 drop-shadow-lg transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
            style={{ transitionDelay: '400ms' }}>
           Donde cada plato tiene historia · Abierto hasta las 11 PM
         </p>
