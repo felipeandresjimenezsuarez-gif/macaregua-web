@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Sabor colombiano sin rodeos. Girón, Santander.',
     url: 'https://macaregua.com',
     siteName: 'Restaurante Macaregua',
-    images: [{ url: '/images/hero-cazuela.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/FOTO-ANCHA-POLLO.jpg', width: 1200, height: 630 }],
     locale: 'es_CO',
     type: 'website',
   },

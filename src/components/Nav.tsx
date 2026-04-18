@@ -14,7 +14,7 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
-            src="/images/logo-macaregua.png"
+            src="/images/logo-macaregua-WHITE-.png"
             alt="Macaregua Restaurante"
             width={120}
             height={40}

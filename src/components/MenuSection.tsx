@@ -36,28 +36,31 @@ const DESAYUNOS = [
   { name: 'Caldo de Res Especial',       price: '$30.000', base: 'Con bebida',  extras: ['Sin bebida −$3.000'],                        img: '/images/foto-caldo-res.jpg' },
   { name: 'Caldo de Costilla',           price: '$33.000', base: 'Con bebida',  extras: ['Sin bebida −$3.000'],                        img: '/images/foto-caldo-costilla.jpg' },
   { name: 'Caldo con Huevo y Arepa',     price: '$18.000', base: 'Con bebida',  extras: ['Sin bebida −$2.000', '+ Queso +$2.000'],     img: '/images/foto-caldo-huevo.jpg' },
-  { name: 'Caldo de Pollo',              price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$2.000', '+ Huevos +$3.000'],    img: '/images/foto-caldo-huevo.jpg' },
-  { name: 'Huevos al Gusto',             price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$3.000'],                        img: '/images/foto-caldo-huevo.jpg' },
-  { name: 'Bandeja de Carne',            price: '$18.000', base: 'Con bebida',  extras: [],                                            img: '/images/foto-bandeja-paisa.jpg' },
-  { name: 'Sandwich de Pollo',           price: '$18.000', base: 'Sin papa',    extras: ['+ Jugo +$4.000'],                            img: '/images/foto-pollo-plancha.jpg' },
-  { name: 'Sandwich Jamón y Queso',      price: '$12.000', base: 'Sin papa',    extras: ['+ Jugo +$4.000'],                            img: '/images/foto-pollo-plancha.jpg' },
-  { name: 'Huevos Pericos / Rancheros',  price: '$10.000', base: 'Precio fijo', extras: [],                                            img: '/images/foto-caldo-huevo.jpg' },
-  { name: 'Arepa con Queso',             price: '$3.500',  base: 'Base',        extras: ['+ Jamón +$500'],                             img: '/images/foto-caldo-huevo.jpg' },
+  { name: 'Caldo de Pollo',              price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$2.000', '+ Huevos +$3.000'],    img: '/images/foto-caldo-pollo.jpg' },
+  { name: 'Huevos al Gusto',             price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$3.000'],                        img: '/images/foto-huevos-gusto.jpg' },
+  { name: 'Bandeja de Carne',            price: '$18.000', base: 'Con bebida',  extras: [],                                            img: '/images/foto-bandeja-carne.jpg' },
+  { name: 'Sandwich de Pollo',           price: '$18.000', base: 'Sin papa',    extras: ['+ Jugo +$4.000'],                            img: '/images/foto-sandwich-pollo-queso.jpg' },
+  { name: 'Sandwich Jamón y Queso',      price: '$12.000', base: 'Sin papa',    extras: ['+ Jugo +$4.000'],                            img: '/images/foto-sandwich-jamon-queso.jpg' },
+  { name: 'Huevos Pericos / Rancheros',  price: '$10.000', base: 'Precio fijo', extras: [],                                            img: '/images/foto-huevos-rancheros.jpg' },
+  { name: 'Arepa con Queso',             price: '$3.500',  base: 'Base',        extras: ['+ Jamón +$500'],                             img: '/images/foto-arepa-queso.jpg' },
 ]
 
 const ACARTA = [
+  { name: 'Bandeja Paisa',        price: '$28.000', base: 'Plato completo',  extras: [],                                        img: '/images/foto-bandeja-paisa.jpg' },
+  { name: 'Sancocho Especial',    price: '$25.000', base: 'Con bebida',      extras: ['Sin bebida −$3.000'],                    img: '/images/foto-sancocho.jpg' },
   { name: 'Chatas',               price: '$42.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-chatas.jpg' },
-  { name: 'Carne a la Plancha',   price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pollo-plancha.jpg' },
+  { name: 'Carne a la Plancha',   price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-carne-guisada-asada.jpg' },
+  { name: 'Milanesa de Carne',   price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-milanesa-carne.jpg' },
   { name: 'Pechuga a la Plancha', price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pollo-plancha.jpg' },
   { name: 'Pechuga Gratinada',    price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pechuga-gratinada.jpg' },
-  { name: 'Cerdo a la Plancha',   price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-bandeja-paisa.jpg' },
+  { name: 'Cerdo a la Plancha',   price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-cerdo-plancha.jpg' },
   { name: 'Sobrebarriga',         price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-sobrebarriga.jpg' },
   { name: 'Mojarra Frita',        price: '$30.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-mojarra.jpg' },
-  { name: 'Bagre Frito',          price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-cazuela-mariscos.jpg' },
-  { name: 'Bagre Sudado',         price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-cazuela-mariscos.jpg' },
+  { name: 'Bagre Frito',          price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-bagre-frito.jpg' },
+  { name: 'Bagre Sudado',         price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-bagre-sudado.jpg' },
   { name: 'Cazuela Mariscos',     price: '$32.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'],       img: '/images/foto-cazuela-mariscos.jpg' },
-  { name: 'Lasagna Mixta',        price: '$30.000', base: 'Carne, pollo',    extras: ['Incluye acompañamientos'],               img: '/images/foto-spaguettis.jpg' },
-  { name: 'Lasagna Especial',     price: '$36.000', base: 'Champiñón',       extras: ['Incluye acompañamientos'],               img: '/images/foto-spaguettis.jpg' },
+  { name: 'Lasagna Mixta',        price: '$30.000', base: 'Carne, pollo',    extras: ['Incluye acompañamientos'],               img: '/images/foto-lasagna-.jpg' },
+  { name: 'Lasagna Especial',     price: '$36.000', base: 'Champiñón',       extras: ['Incluye acompañamientos'],               img: '/images/foto-lasagna-especial.jpg' },
 ]
 
 const PIZZAS = [
@@ -91,8 +94,23 @@ const BEBIDAS = [
   { name: 'Sangría',                 price: '$40.000', base: 'Jarra',       extras: ['Vaso +$8.000'],            type: 'coctel' },
 ]
 
-const TABS = ['Desayuno', 'A la Carta', 'Almuerzo', 'Pizzas', 'Bebidas']
-const TAB_HASHES = ['desayuno', 'acarta', 'almuerzo', 'pizzas', 'bebidas']
+const OTROS = [
+  { name: 'Pincho Mixto',                     price: '$36.000',  base: 'Precio base',           extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
+  { name: 'Pincho de Carne',                  price: '$36.000',  base: 'Precio base',           extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
+  { name: 'Pincho de Cerdo',                  price: '$34.000',  base: 'Precio base',           extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
+  { name: 'Pincho de Pollo',                  price: '$34.000',  base: 'Precio base',           extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
+  { name: 'Picada Grande',                    price: '$120.000', base: 'Lomito de res, pollo, cerdo', extras: ['Cebollita, tomate, queso, papa criolla y a la francesa'], img: '/images/plato-almuerzo.jpg' },
+  { name: 'Picada Pequeña',                   price: '$80.000',  base: 'Lomito de res, pollo, cerdo', extras: ['Cebollita, tomate, queso, papa criolla y a la francesa'], img: '/images/plato-almuerzo.jpg' },
+  { name: 'Hamburguesa Especial',             price: '$32.000',  base: 'Carne y pollo',         extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
+  { name: 'Hamburguesa Corriente',            price: '$27.000',  base: 'Solo carne',            extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
+  { name: 'Sándwich de Pollo',                price: '$22.000',  base: 'Precio base',           extras: [],                                                              img: '/images/foto-sandwich-pollo-queso.jpg' },
+  { name: 'Sándwich de Jamón y Queso',        price: '$15.000',  base: 'Precio base',           extras: [],                                                              img: '/images/foto-sandwich-jamon-queso.jpg' },
+  { name: 'Papa a la Francesa con Queso',     price: '$11.000',  base: 'Porción',              extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
+  { name: 'Papa Francesa con Queso y Tocineta', price: '$14.000', base: 'Porción',             extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
+]
+
+const TABS = ['Desayuno', 'A la Carta', 'Almuerzo', 'Pizzas', 'Bebidas', 'Otros']
+const TAB_HASHES = ['desayuno', 'acarta', 'almuerzo', 'pizzas', 'bebidas', 'otros']
 
 // ─── Lógica de horario ─────────────────────────────────────────────────────────
 // Horario: Lunes–Sábado 6:30 AM – 10:30 PM
@@ -182,12 +200,40 @@ function BebidaIcon({ type }: { type: string }) {
   )
 }
 
-// ─── Componentes de fila (thumbnail 56×56) ─────────────────────────────────────
+// ─── Card de plato con imagen grande ──────────────────────────────────────────
 
-function FotoThumb({ src, alt }: { src: string; alt: string }) {
+function PlatoCard({ name, price, base, extras, img, waUrl }: {
+  name: string; price: string; base: string; extras: string[]; img: string; waUrl: string
+}) {
   return (
-    <div className="w-14 h-14 flex-shrink-0 rounded overflow-hidden relative bg-[#1a1a1a]" style={{ position: 'relative' }}>
-      <Image src={src} alt={alt} fill sizes="56px" className="object-cover object-center" />
+    <div className="bg-[#0f0f0f] border border-[#1a1a1a] rounded overflow-hidden hover:border-[#2a2a2a] hover:-translate-y-0.5 transition-all duration-200">
+      {/* Imagen grande */}
+      <div className="relative h-40 w-full overflow-hidden bg-[#1a1a1a]">
+        <img
+          src={img}
+          alt={name}
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-transparent to-transparent" />
+        <div className="absolute bottom-2 right-2">
+          <span className="font-serif text-[17px] font-light text-[#D4A017] drop-shadow-lg">{price}</span>
+        </div>
+      </div>
+      {/* Info */}
+      <div className="p-3">
+        <div className="font-serif text-[14px] font-normal text-[#ddd] leading-snug mb-2">{name}</div>
+        <div className="flex gap-1 flex-wrap mb-3">
+          <span className="text-[10px] px-2 py-0.5 rounded-sm border border-[#D4A01730] bg-[#D4A01710] text-[#D4A017] tracking-wide">{base}</span>
+          {extras.map((e) => (
+            <span key={e} className="text-[10px] px-2 py-0.5 rounded-sm border border-[#222] bg-[#111] text-[#555] tracking-wide">{e}</span>
+          ))}
+        </div>
+        <a href={waUrl} target="_blank" rel="noopener noreferrer"
+          className="block w-full text-center text-[10px] font-medium bg-[#D4A017] text-[#1a0f00] py-2 rounded-sm tracking-widest uppercase hover:opacity-85 transition-opacity">
+          Ordenar
+        </a>
+      </div>
     </div>
   )
 }
@@ -257,7 +303,7 @@ export default function MenuSection() {
           <button
             key={t}
             onClick={() => handleTabClick(i)}
-            className={`text-[12px] px-5 py-2 rounded-sm border tracking-wide transition-all duration-200 ${
+            className={`cursor-pointer text-[12px] px-5 py-2 rounded-sm border tracking-wide transition-all duration-200 ${
               active === i
                 ? 'bg-[#D4A017] text-[#1a0f00] border-[#D4A017] font-medium'
                 : 'bg-transparent text-[#555] border-[#222] hover:border-[#D4A017] hover:text-[#D4A017]'
@@ -278,27 +324,9 @@ export default function MenuSection() {
               Ingredientes adicionales como huevo extra, queso, jamón o bebida ajustan el precio final.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {DESAYUNOS.map((d) => (
-              <div key={d.name} className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-                <FotoThumb src={d.img} alt={d.name} />
-                <div className="flex-1 min-w-0">
-                  <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{d.name}</div>
-                  <div className="flex gap-1.5 flex-wrap">
-                    <span className="text-[10px] px-2 py-0.5 rounded-sm border border-[#D4A01730] bg-[#D4A01710] text-[#D4A017] tracking-wide">{d.base}</span>
-                    {d.extras.map((e) => (
-                      <span key={e} className="text-[10px] px-2 py-0.5 rounded-sm border border-[#2222228c] bg-[#111] text-[#555] tracking-wide">{e}</span>
-                    ))}
-                  </div>
-                </div>
-                <div className="text-right flex-shrink-0">
-                  <div className="font-serif text-[18px] font-light text-[#D4A017]">{d.price}</div>
-                  <a href={WA(d.name)} target="_blank" rel="noopener noreferrer"
-                    className="inline-block mt-1.5 text-[10px] font-medium bg-[#D4A017] text-[#1a0f00] px-3 py-1.5 rounded-sm tracking-wide uppercase">
-                    Ordenar
-                  </a>
-                </div>
-              </div>
+              <PlatoCard key={d.name} {...d} waUrl={WA(d.name)} />
             ))}
           </div>
           <p className="text-[11px] font-light text-[#333] text-center mt-5 tracking-wide">
@@ -317,27 +345,9 @@ export default function MenuSection() {
               Arroz, papas a la francesa y ensalada. Consulta especificaciones por WhatsApp.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {ACARTA.map((d) => (
-              <div key={d.name} className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-                <FotoThumb src={d.img} alt={d.name} />
-                <div className="flex-1 min-w-0">
-                  <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{d.name}</div>
-                  <div className="flex gap-1.5 flex-wrap">
-                    <span className="text-[10px] px-2 py-0.5 rounded-sm border border-[#D4A01730] bg-[#D4A01710] text-[#D4A017] tracking-wide">{d.base}</span>
-                    {d.extras.map((e) => (
-                      <span key={e} className="text-[10px] px-2 py-0.5 rounded-sm border border-[#2222228c] bg-[#111] text-[#555] tracking-wide">{e}</span>
-                    ))}
-                  </div>
-                </div>
-                <div className="text-right flex-shrink-0">
-                  <div className="font-serif text-[18px] font-light text-[#D4A017]">{d.price}</div>
-                  <a href={WA(d.name)} target="_blank" rel="noopener noreferrer"
-                    className="inline-block mt-1.5 text-[10px] font-medium bg-[#D4A017] text-[#1a0f00] px-3 py-1.5 rounded-sm tracking-wide uppercase">
-                    Ordenar
-                  </a>
-                </div>
-              </div>
+              <PlatoCard key={d.name} {...d} waUrl={WA(d.name)} />
             ))}
           </div>
         </div>
@@ -422,6 +432,27 @@ export default function MenuSection() {
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* ── OTROS ── */}
+      {active === 5 && (
+        <div>
+          <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
+            <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
+            <p className="text-[12px] font-light text-[#555] leading-relaxed">
+              <span className="text-[#D4A017] font-normal">Pinchos, picadas, hamburguesas y más.</span>{' '}
+              Perfectos para compartir o disfrutar solos. Confirmá ingredientes por WhatsApp.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {OTROS.map((d) => (
+              <PlatoCard key={d.name} {...d} waUrl={WA(d.name)} />
+            ))}
+          </div>
+          <p className="text-[11px] font-light text-[#333] text-center mt-5 tracking-wide">
+            * Precios sujetos a cambio · Los extras se confirman al ordenar por WhatsApp
+          </p>
         </div>
       )}
 

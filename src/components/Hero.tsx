@@ -5,10 +5,10 @@ import Image from 'next/image'
 const WA_URL = `https://wa.me/573052015683?text=${encodeURIComponent('Hola, me gustaría hacer un pedido a domicilio 🍽️')}`
 
 const HERO_IMAGES = [
-  { src: '/images/hero-bandeja-paisa.jpg', alt: 'Bandeja Paisa Macaregua' },
-  { src: '/images/hero-cazuela.jpg',       alt: 'Cazuela de Mariscos' },
-  { src: '/images/hero-caldo-arepa.jpg',   alt: 'Caldo con Arepa' },
-  { src: '/images/hero-sancocho.jpg',      alt: 'Sancocho especial' },
+  { src: '/images/FOTO-ANCHA-POLLO.jpg',     alt: 'Pollo a la plancha Macaregua' },
+  { src: '/images/FOTO-ANCHA-MOJARRA.jpg',   alt: 'Mojarra frita Macaregua' },
+  { src: '/images/foto-bandeja-paisa.jpg',   alt: 'Bandeja Paisa Macaregua' },
+  { src: '/images/foto-cazuela-mariscos.jpg', alt: 'Cazuela de Mariscos' },
 ]
 
 export default function Hero() {

@@ -152,7 +152,9 @@ body {
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
 }
+.btn-wa:hover { opacity: 0.88; transform: translateY(-1px); }
 
 /* Divisor */
 .divider { height: 0.5px; background: var(--border); }
@@ -165,6 +167,30 @@ body {
   text-transform: uppercase;
   font-weight: 400;
   margin-bottom: 10px;
+}
+
+/* Focus visible — accesibilidad teclado */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Scrollbar oscuro */
