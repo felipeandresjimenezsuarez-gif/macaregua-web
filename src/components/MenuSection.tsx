@@ -109,8 +109,8 @@ const OTROS = [
   { name: 'Papa Francesa con Queso y Tocineta', price: '$14.000', base: 'Porción',             extras: [],                                                              img: '/images/foto-papa-francesa-tocineta-queso.jpg' },
 ]
 
-const TABS = ['Desayuno', 'A la Carta', 'Almuerzo', 'Pizzas', 'Bebidas', 'Otros']
-const TAB_HASHES = ['desayuno', 'acarta', 'almuerzo', 'pizzas', 'bebidas', 'otros']
+const TABS = ['Desayuno', 'A la Carta', 'Almuerzo', 'Pizzas', 'Bebidas', 'Cenas & Parrilla']
+const TAB_HASHES = ['desayuno', 'acarta', 'almuerzo', 'pizzas', 'bebidas', 'cenas']
 
 // ─── Lógica de horario ─────────────────────────────────────────────────────────
 // Horario real: 6:30 AM – 10:30 PM
@@ -128,7 +128,7 @@ function getTimeSlot(): TimeSlot {
   return 'dinner'
 }
 
-// 0=Desayuno 1=ACarta 2=Almuerzo 3=Pizzas 4=Bebidas 5=Otros
+// 0=Desayuno 1=ACarta 2=Almuerzo 3=Pizzas 4=Bebidas 5=CenasParrilla
 function isTabAvailable(tabIndex: number, slot: TimeSlot): boolean {
   if (tabIndex === 4) return true                       // Bebidas — siempre
   if (slot === 'closed')    return false
@@ -153,7 +153,7 @@ function getBannerInfo(slot: TimeSlot): BannerInfo {
   }
   if (slot === 'lunch') return {
     emoji: '🍽️',
-    text: 'Almuerzos, Pizzas y Otros disponibles ahora. Los Almuerzos se sirven hasta las 2:00 PM.',
+    text: 'Almuerzos, Pizzas y Cenas & Parrilla disponibles ahora. Los Almuerzos se sirven hasta las 2:00 PM.',
     style: 'green',
   }
   if (slot === 'dinner') return {
@@ -324,7 +324,9 @@ export default function MenuSection() {
             <button
               key={t}
               onClick={() => handleTabClick(i)}
-              className={`cursor-pointer text-[12px] px-5 py-2 rounded-sm border tracking-wide transition-all duration-200 ${
+              className={`cursor-pointer px-4 py-2 rounded-sm border tracking-wide transition-all duration-200 ${
+                t === 'Cenas & Parrilla' ? 'text-[10px]' : 'text-[12px]'
+              } ${
                 active === i
                   ? 'bg-[#D4A017] text-[#1a0f00] border-[#D4A017] font-medium'
                   : available
@@ -483,20 +485,20 @@ export default function MenuSection() {
         </div>
       )}
 
-      {/* ── OTROS ── */}
+      {/* ── CENAS & PARRILLA ── */}
       {active === 5 && (
         <div>
           {!isTabAvailable(5, slot) && (
             <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
               <span>⏰</span>
-              <span>No disponible por ahora — Pinchos, hamburguesas y más están disponibles desde las 11:30 AM</span>
+              <span>No disponible por ahora — Cenas & Parrilla disponibles desde las 11:30 AM</span>
             </div>
           )}
           <div className={isTabAvailable(5, slot) ? '' : 'opacity-70 pointer-events-none select-none'}>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
             <p className="text-[12px] font-light text-[#555] leading-relaxed">
-              <span className="text-[#D4A017] font-normal">Pinchos, picadas, hamburguesas y más.</span>{' '}
+              <span className="text-[#D4A017] font-normal">Cenas & Parrilla — pinchos, picadas, hamburguesas y más.</span>{' '}
               Perfectos para compartir o disfrutar solos. Confirmá ingredientes por WhatsApp.
             </p>
           </div>
