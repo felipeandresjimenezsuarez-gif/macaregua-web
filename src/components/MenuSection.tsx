@@ -95,18 +95,18 @@ const BEBIDAS = [
 ]
 
 const OTROS = [
-  { name: 'Pincho Mixto',                     price: '$36.000',  base: 'Precio base',           extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
-  { name: 'Pincho de Carne',                  price: '$36.000',  base: 'Precio base',           extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
-  { name: 'Pincho de Cerdo',                  price: '$34.000',  base: 'Precio base',           extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
-  { name: 'Pincho de Pollo',                  price: '$34.000',  base: 'Precio base',           extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
-  { name: 'Picada Grande',                    price: '$120.000', base: 'Lomito de res, pollo, cerdo', extras: ['Cebollita, tomate, queso, papa criolla y a la francesa'], img: '/images/plato-almuerzo.jpg' },
-  { name: 'Picada Pequeña',                   price: '$80.000',  base: 'Lomito de res, pollo, cerdo', extras: ['Cebollita, tomate, queso, papa criolla y a la francesa'], img: '/images/plato-almuerzo.jpg' },
-  { name: 'Hamburguesa Especial',             price: '$32.000',  base: 'Carne y pollo',         extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
-  { name: 'Hamburguesa Corriente',            price: '$27.000',  base: 'Solo carne',            extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
+  { name: 'Pincho Mixto',                     price: '$36.000',  base: 'Precio base',           extras: [],                                                              img: '/images/foto-pincho-mixto.jpg' },
+  { name: 'Pincho de Carne',                  price: '$36.000',  base: 'Precio base',           extras: [],                                                              img: '/images/foto-pincho-carne.jpg' },
+  { name: 'Pincho de Cerdo',                  price: '$34.000',  base: 'Precio base',           extras: [],                                                              img: '/images/foto-pincho-mixto.jpg' },
+  { name: 'Pincho de Pollo',                  price: '$34.000',  base: 'Precio base',           extras: [],                                                              img: '/images/foto-pincho-pollo.jpg' },
+  { name: 'Picada Grande',                    price: '$120.000', base: 'Lomito de res, pollo, cerdo', extras: ['Cebollita, tomate, queso, papa criolla y a la francesa'], img: '/images/foto-picada.jpg' },
+  { name: 'Picada Pequeña',                   price: '$80.000',  base: 'Lomito de res, pollo, cerdo', extras: ['Cebollita, tomate, queso, papa criolla y a la francesa'], img: '/images/foto-picada.jpg' },
+  { name: 'Hamburguesa Especial',             price: '$32.000',  base: 'Carne y pollo',         extras: [],                                                              img: '/images/foto-hamburguesa-mixta.jpg' },
+  { name: 'Hamburguesa Corriente',            price: '$27.000',  base: 'Solo carne',            extras: [],                                                              img: '/images/foto-hamburguesa-sencilla.jpg' },
   { name: 'Sándwich de Pollo',                price: '$22.000',  base: 'Precio base',           extras: [],                                                              img: '/images/foto-sandwich-pollo-queso.jpg' },
   { name: 'Sándwich de Jamón y Queso',        price: '$15.000',  base: 'Precio base',           extras: [],                                                              img: '/images/foto-sandwich-jamon-queso.jpg' },
-  { name: 'Papa a la Francesa con Queso',     price: '$11.000',  base: 'Porción',              extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
-  { name: 'Papa Francesa con Queso y Tocineta', price: '$14.000', base: 'Porción',             extras: [],                                                              img: '/images/plato-almuerzo.jpg' },
+  { name: 'Papa a la Francesa con Queso',     price: '$11.000',  base: 'Porción',              extras: [],                                                              img: '/images/foto-papa-francesa-tocineta-queso.jpg' },
+  { name: 'Papa Francesa con Queso y Tocineta', price: '$14.000', base: 'Porción',             extras: [],                                                              img: '/images/foto-papa-francesa-tocineta-queso.jpg' },
 ]
 
 const TABS = ['Desayuno', 'A la Carta', 'Almuerzo', 'Pizzas', 'Bebidas', 'Otros']
