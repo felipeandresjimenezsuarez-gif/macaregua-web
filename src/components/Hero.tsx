@@ -48,7 +48,7 @@ export default function Hero() {
       <div className="absolute inset-0 hero-grid-bg opacity-20 z-10" />
 
       {/* Glow center */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#D4A017]/8 rounded-full z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(500px,100vw)] h-[300px] bg-[#D4A017]/8 rounded-full z-10" />
 
       {/* Contenido */}
       <div className="relative z-20 max-w-3xl mx-auto px-8 py-20">
