@@ -109,8 +109,8 @@ const OTROS = [
   { name: 'Papa Francesa con Queso y Tocineta', price: '$14.000', base: 'Porción',             extras: [],                                                              img: '/images/foto-papa-francesa-tocineta-queso.jpg' },
 ]
 
-const TABS = ['Desayuno', 'A la Carta', 'Almuerzo', 'Pizzas', 'Bebidas', 'Cenas & Parrilla']
-const TAB_HASHES = ['desayuno', 'acarta', 'almuerzo', 'pizzas', 'bebidas', 'cenas']
+const TABS = ['Desayuno', 'Almuerzo', 'Cenas & Parrilla', 'A la Carta', 'Pizzas', 'Bebidas']
+const TAB_HASHES = ['desayuno', 'almuerzo', 'cenas', 'acarta', 'pizzas', 'bebidas']
 
 // ─── Lógica de horario ─────────────────────────────────────────────────────────
 // Horario real: 6:30 AM – 10:30 PM
@@ -128,18 +128,18 @@ function getTimeSlot(): TimeSlot {
   return 'dinner'
 }
 
-// 0=Desayuno 1=ACarta 2=Almuerzo 3=Pizzas 4=Bebidas 5=CenasParrilla
+// 0=Desayuno 1=Almuerzo 2=CenasParrilla 3=ACarta 4=Pizzas 5=Bebidas
 function isTabAvailable(tabIndex: number, slot: TimeSlot): boolean {
-  if (tabIndex === 4) return true                       // Bebidas — siempre
+  if (tabIndex === 5) return true                       // Bebidas — siempre
   if (slot === 'closed')    return false
   if (slot === 'breakfast') return tabIndex === 0       // Solo Desayuno
   if (slot === 'lunch')     return tabIndex !== 0       // Todo menos Desayuno
-  return tabIndex !== 0 && tabIndex !== 2               // dinner: sin Desayuno ni Almuerzo
+  return tabIndex !== 0 && tabIndex !== 1               // dinner: sin Desayuno ni Almuerzo
 }
 
 function getDefaultTab(slot: TimeSlot): number {
-  if (slot === 'lunch')   return 2  // Almuerzo
-  if (slot === 'dinner')  return 3  // Pizzas
+  if (slot === 'lunch')   return 1  // Almuerzo
+  if (slot === 'dinner')  return 4  // Pizzas
   return 0                          // breakfast / closed → Desayuno
 }
 
@@ -370,7 +370,7 @@ export default function MenuSection() {
       )}
 
       {/* ── A LA CARTA ── */}
-      {active === 1 && (
+      {active === 3 && (
         <div>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
@@ -388,15 +388,15 @@ export default function MenuSection() {
       )}
 
       {/* ── ALMUERZOS ── */}
-      {active === 2 && (
+      {active === 1 && (
         <div>
-          {!isTabAvailable(2, slot) && (
+          {!isTabAvailable(1, slot) && (
             <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
               <span>⏰</span>
               <span>Almuerzos disponibles de 11:30 AM a 2:00 PM · {slot === 'breakfast' ? 'Volvemos al mediodía' : 'Servicio finalizado por hoy'}</span>
             </div>
           )}
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${isTabAvailable(2, slot) ? '' : 'opacity-70 pointer-events-none select-none'}`}>
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${isTabAvailable(1, slot) ? '' : 'opacity-70 pointer-events-none select-none'}`}>
           {ALMUERZOS.map((p) => (
             <div key={p.name}
               className={`relative rounded overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
@@ -442,15 +442,15 @@ export default function MenuSection() {
       )}
 
       {/* ── PIZZAS ── */}
-      {active === 3 && (
+      {active === 4 && (
         <div>
-          {!isTabAvailable(3, slot) && (
+          {!isTabAvailable(4, slot) && (
             <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
               <span>⏰</span>
               <span>No disponible por ahora — Las pizzas están disponibles desde las 11:30 AM</span>
             </div>
           )}
-          <div className={isTabAvailable(3, slot) ? '' : 'opacity-70 pointer-events-none select-none'}>
+          <div className={isTabAvailable(4, slot) ? '' : 'opacity-70 pointer-events-none select-none'}>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
             <p className="text-[12px] font-light text-[#555] leading-relaxed">
@@ -486,15 +486,15 @@ export default function MenuSection() {
       )}
 
       {/* ── CENAS & PARRILLA ── */}
-      {active === 5 && (
+      {active === 2 && (
         <div>
-          {!isTabAvailable(5, slot) && (
+          {!isTabAvailable(2, slot) && (
             <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
               <span>⏰</span>
               <span>No disponible por ahora — Cenas & Parrilla disponibles desde las 11:30 AM</span>
             </div>
           )}
-          <div className={isTabAvailable(5, slot) ? '' : 'opacity-70 pointer-events-none select-none'}>
+          <div className={isTabAvailable(2, slot) ? '' : 'opacity-70 pointer-events-none select-none'}>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
             <p className="text-[12px] font-light text-[#555] leading-relaxed">
@@ -515,7 +515,7 @@ export default function MenuSection() {
       )}
 
       {/* ── BEBIDAS ── */}
-      {active === 4 && (
+      {active === 5 && (
         <div>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
