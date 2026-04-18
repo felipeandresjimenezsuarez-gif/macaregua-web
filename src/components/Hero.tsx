@@ -74,7 +74,7 @@ export default function Hero() {
         <div className={`flex flex-wrap gap-3 justify-center transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
              style={{ transitionDelay: '500ms' }}>
           <a href="#menu" className="btn-gold">Ver el Menú</a>
-          <a href="tel:76760719" className="btn-outline">Llamar para Reservar</a>
+          <a href="tel:+577676071905" className="btn-outline">Llamar para Reservar</a>
           <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="btn-wa">
             Domicilio WhatsApp
           </a>

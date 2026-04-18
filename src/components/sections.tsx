@@ -128,7 +128,7 @@ export function GMBSection() {
                     className="text-[11px] text-center py-2 border border-[#222] text-[#ccc] rounded-sm hover:border-[#D4A017] hover:text-[#D4A017] transition-colors">
                     Cómo llegar
                   </a>
-                  <a href="tel:76760719"
+                  <a href="tel:+577676071905"
                     className="text-[11px] text-center py-2 border border-[#222] text-[#ccc] rounded-sm hover:border-[#D4A017] hover:text-[#D4A017] transition-colors">
                     Llamar
                   </a>

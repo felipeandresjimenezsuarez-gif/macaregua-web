@@ -19,24 +19,29 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Macaregua Restaurante · Pizza · Café | Girón, Santander',
+  title: 'Restaurante Macaregua | Comida Santandereana en Chimita · Domicilios Bucaramanga',
   description:
-    'Sabor colombiano sin rodeos. Almuerzos ejecutivos, pizzas caseras y desayunos completos en Girón, Santander. Vía Chimita Km 1. Abierto todos los días hasta las 11 PM.',
+    'Restaurante Macaregua — cocina santandereana auténtica en Vía Chimita Km 1, Girón. Almuerzos ejecutivos, pinchos, hamburguesas y domicilios a Bucaramanga. Abierto todos los días hasta las 11 PM.',
   keywords: [
-    'restaurante girón',
-    'almuerzo ejecutivo girón',
-    'domicilios vía chimita',
-    'pizza santander',
-    'macaregua restaurante',
-    'comida colombiana girón',
-    'restaurante vía chimita',
+    'Restaurante Macaregua',
+    'comida santandereana Chimita',
+    'restaurante Vía Chimita',
+    'domicilios Bucaramanga',
+    'domicilios Girón Santander',
+    'almuerzo ejecutivo Girón',
+    'pinchos Bucaramanga',
+    'hamburguesas Chimita',
+    'restaurante colombiano Girón',
+    'comida a domicilio Bucaramanga',
+    'restaurante Girón Santander',
   ],
   openGraph: {
-    title: 'Macaregua Restaurante · Pizza · Café',
-    description: 'Sabor colombiano sin rodeos. Girón, Santander.',
+    title: 'Restaurante Macaregua · Comida Santandereana en Chimita',
+    description:
+      'Cocina santandereana auténtica a domicilio en Bucaramanga y Girón. Pinchos, hamburguesas, almuerzos ejecutivos. Pedí por WhatsApp.',
     url: 'https://macaregua.com',
     siteName: 'Restaurante Macaregua',
-    images: [{ url: '/images/FOTO-ANCHA-POLLO.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/images/logo-macaregua.png', width: 800, height: 800, alt: 'Logo Restaurante Macaregua' }],
     locale: 'es_CO',
     type: 'website',
   },
@@ -45,7 +50,7 @@ export const metadata: Metadata = {
       '@context': 'https://schema.org',
       '@type': 'Restaurant',
       name: 'Restaurante Macaregua',
-      servesCuisine: 'Colombian',
+      servesCuisine: 'Colombian, Santandereana',
       priceRange: '$$',
       address: {
         '@type': 'PostalAddress',
@@ -54,7 +59,7 @@ export const metadata: Metadata = {
         addressRegion: 'Santander',
         addressCountry: 'CO',
       },
-      telephone: '+5776760719',
+      telephone: '+577676071905',
       openingHours: 'Mo-Su 06:00-23:00',
       aggregateRating: {
         '@type': 'AggregateRating',

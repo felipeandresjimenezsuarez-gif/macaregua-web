@@ -17,8 +17,8 @@ export default function Footer() {
           <div>
             <h3 className="font-serif text-[16px] font-normal text-[#f0f0f0] mb-3 tracking-wider">Contacto</h3>
             <p className="text-[13px] font-light text-[#D4A017] mb-4">
-              <a href="tel:576760719" className="hover:text-[#f0f0f0] transition-colors">
-                76760719
+              <a href="tel:+577676071905" className="hover:text-[#f0f0f0] transition-colors">
+                767 607 1905
               </a>
             </p>
             <p className="text-[13px] font-light text-[#555]">
