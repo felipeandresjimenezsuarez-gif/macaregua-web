@@ -113,51 +113,59 @@ const TABS = ['Desayuno', 'A la Carta', 'Almuerzo', 'Pizzas', 'Bebidas', 'Otros'
 const TAB_HASHES = ['desayuno', 'acarta', 'almuerzo', 'pizzas', 'bebidas', 'otros']
 
 // ─── Lógica de horario ─────────────────────────────────────────────────────────
-// Horario: Lunes–Sábado 6:30 AM – 10:30 PM
+// Horario real: 6:30 AM – 10:30 PM
+// Desayunos:  6:30 AM – 11:29 AM
+// Almuerzos: 11:30 AM –  2:00 PM  (ventana estricta)
+// Cena/Carta: 11:30 AM – 10:30 PM
 
-type MealInfo = {
-  tabIndex: number
-  label: string
-  until: string
-  open: boolean
-}
+type TimeSlot = 'breakfast' | 'lunch' | 'dinner' | 'closed'
 
-function getMealByTime(): MealInfo {
-  const now = new Date()
-  const h = now.getHours()
-  const m = now.getMinutes()
-  const t = h * 60 + m // minutos desde medianoche
-
-  const OPEN  = 6 * 60 + 30   //  6:30
-  const END_D = 11 * 60        // 11:00
-  const END_A = 15 * 60 + 30  // 15:30
-  const CLOSE = 22 * 60 + 30  // 22:30
-
-  if (t < OPEN || t >= CLOSE) {
-    // Cerrado — mostrar lo que abre primero
-    return { tabIndex: 0, label: 'Abrimos a las 6:30 AM', until: '6:30 AM', open: false }
-  }
-  if (t < END_D) {
-    return { tabIndex: 0, label: 'Desayunos', until: '11:00 AM', open: true }
-  }
-  if (t < END_A) {
-    return { tabIndex: 2, label: 'Almuerzos', until: '3:30 PM', open: true }
-  }
-  // Tarde-noche → Pizzas y A la Carta
-  return { tabIndex: 3, label: 'Pizzas y platos a la carta', until: '10:30 PM', open: true }
-}
-
-function isBreakfastHour(): boolean {
-  const now = new Date()
-  const t = now.getHours() * 60 + now.getMinutes()
-  return t >= 6 * 60 + 30 && t < 11 * 60 + 30
+function getTimeSlot(): TimeSlot {
+  const t = new Date().getHours() * 60 + new Date().getMinutes()
+  if (t < 6 * 60 + 30 || t >= 22 * 60 + 30) return 'closed'
+  if (t < 11 * 60 + 30) return 'breakfast'
+  if (t < 14 * 60)      return 'lunch'
+  return 'dinner'
 }
 
 // 0=Desayuno 1=ACarta 2=Almuerzo 3=Pizzas 4=Bebidas 5=Otros
-function isTabAvailable(tabIndex: number, breakfast: boolean): boolean {
-  if (tabIndex === 4) return true         // Bebidas — siempre
-  if (breakfast) return tabIndex <= 1     // Desayuno + A la Carta
-  return tabIndex !== 0                   // Todo menos Desayuno
+function isTabAvailable(tabIndex: number, slot: TimeSlot): boolean {
+  if (tabIndex === 4) return true                       // Bebidas — siempre
+  if (slot === 'closed')    return false
+  if (slot === 'breakfast') return tabIndex === 0       // Solo Desayuno
+  if (slot === 'lunch')     return tabIndex !== 0       // Todo menos Desayuno
+  return tabIndex !== 0 && tabIndex !== 2               // dinner: sin Desayuno ni Almuerzo
+}
+
+function getDefaultTab(slot: TimeSlot): number {
+  if (slot === 'lunch')   return 2  // Almuerzo
+  if (slot === 'dinner')  return 3  // Pizzas
+  return 0                          // breakfast / closed → Desayuno
+}
+
+type BannerInfo = { emoji: string; text: string; style: 'gold' | 'green' | 'muted' }
+
+function getBannerInfo(slot: TimeSlot): BannerInfo {
+  if (slot === 'breakfast') return {
+    emoji: '☕',
+    text: 'Estamos en horario de Desayunos. Almuerzos y platos a la carta disponibles desde las 11:30 AM.',
+    style: 'gold',
+  }
+  if (slot === 'lunch') return {
+    emoji: '🍽️',
+    text: 'Almuerzos, Pizzas y Otros disponibles ahora. Los Almuerzos se sirven hasta las 2:00 PM.',
+    style: 'green',
+  }
+  if (slot === 'dinner') return {
+    emoji: '🍽️',
+    text: 'Pizzas, Parrilla y Platos a la carta disponibles ahora. Los Almuerzos regresan mañana a las 11:30 AM.',
+    style: 'green',
+  }
+  return {
+    emoji: '⏰',
+    text: 'Estamos cerrados. Volvemos mañana a las 6:30 AM con el desayuno listo.',
+    style: 'muted',
+  }
 }
 
 // ─── Íconos ────────────────────────────────────────────────────────────────────
@@ -256,11 +264,12 @@ function PlatoCard({ name, price, base, extras, img, waUrl }: {
 export default function MenuSection() {
   const [active, setActive] = useState(0)
   const [mounted, setMounted] = useState(false)
-  const [isBreakfast, setIsBreakfast] = useState(false)
+  const [slot, setSlot] = useState<TimeSlot>('closed')
 
   useEffect(() => {
+    const currentSlot = getTimeSlot()
     setMounted(true)
-    setIsBreakfast(isBreakfastHour())
+    setSlot(currentSlot)
     const section = document.getElementById('menu')
     if (section) section.classList.add('visible')
 
@@ -273,7 +282,7 @@ export default function MenuSection() {
     }
 
     // Sin hash → seleccionar tab por horario
-    setActive(getMealByTime().tabIndex)
+    setActive(getDefaultTab(currentSlot))
   }, [])
 
   const handleTabClick = (index: number) => {
@@ -292,26 +301,25 @@ export default function MenuSection() {
       <p className="text-[13px] font-light text-[#444] mb-4">Ordena directo por WhatsApp · IVA incluido</p>
 
       {/* Banner de disponibilidad horaria */}
-      {mounted && (
-        <div className={`flex items-start gap-3 px-4 py-3 rounded-sm mb-6 text-[12px] leading-relaxed ${
-          isBreakfast
-            ? 'bg-[#D4A01712] border border-[#D4A01730] text-[#b8880f]'
-            : 'bg-[#0e1e0e] border border-[#1e3a1e] text-[#5a9e5a]'
-        }`}>
-          <span className="text-[16px] leading-none mt-px flex-shrink-0">{isBreakfast ? '☕' : '🍽️'}</span>
-          <span>
-            {isBreakfast
-              ? 'Estamos en horario de Desayunos. Los platos de Almuerzo, Otros y Pizzas estarán disponibles desde las 11:30 AM.'
-              : 'Almuerzos, Pizzas y Otros disponibles ahora. Los desayunos regresan mañana a las 6:00 AM.'
-            }
-          </span>
-        </div>
-      )}
+      {mounted && (() => {
+        const b = getBannerInfo(slot)
+        const cls = b.style === 'gold'
+          ? 'bg-[#D4A01712] border border-[#D4A01730] text-[#b8880f]'
+          : b.style === 'green'
+            ? 'bg-[#0e1e0e] border border-[#1e3a1e] text-[#5a9e5a]'
+            : 'bg-[#111] border border-[#1e1e1e] text-[#444]'
+        return (
+          <div className={`flex items-start gap-3 px-4 py-3 rounded-sm mb-6 text-[12px] leading-relaxed ${cls}`}>
+            <span className="text-[16px] leading-none mt-px flex-shrink-0">{b.emoji}</span>
+            <span>{b.text}</span>
+          </div>
+        )
+      })()}
 
       {/* Tabs */}
       <div className="flex gap-2 flex-wrap mb-8">
         {TABS.map((t, i) => {
-          const available = isTabAvailable(i, isBreakfast)
+          const available = isTabAvailable(i, slot)
           return (
             <button
               key={t}
@@ -333,13 +341,13 @@ export default function MenuSection() {
       {/* ── DESAYUNOS ── */}
       {active === 0 && (
         <div>
-          {!isTabAvailable(0, isBreakfast) && (
+          {!isTabAvailable(0, slot) && (
             <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
               <span>⏰</span>
               <span>No disponible por ahora — Los desayunos regresan mañana a las 6:00 AM</span>
             </div>
           )}
-          <div className={isTabAvailable(0, isBreakfast) ? '' : 'opacity-70 pointer-events-none select-none'}>
+          <div className={isTabAvailable(0, slot) ? '' : 'opacity-70 pointer-events-none select-none'}>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
             <p className="text-[12px] font-light text-[#555] leading-relaxed">
@@ -380,13 +388,13 @@ export default function MenuSection() {
       {/* ── ALMUERZOS ── */}
       {active === 2 && (
         <div>
-          {!isTabAvailable(2, isBreakfast) && (
+          {!isTabAvailable(2, slot) && (
             <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
               <span>⏰</span>
-              <span>No disponible por ahora — Los almuerzos están disponibles desde las 11:30 AM</span>
+              <span>Almuerzos disponibles de 11:30 AM a 2:00 PM · {slot === 'breakfast' ? 'Volvemos al mediodía' : 'Servicio finalizado por hoy'}</span>
             </div>
           )}
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${isTabAvailable(2, isBreakfast) ? '' : 'opacity-70 pointer-events-none select-none'}`}>
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${isTabAvailable(2, slot) ? '' : 'opacity-70 pointer-events-none select-none'}`}>
           {ALMUERZOS.map((p) => (
             <div key={p.name}
               className={`relative rounded overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
@@ -434,13 +442,13 @@ export default function MenuSection() {
       {/* ── PIZZAS ── */}
       {active === 3 && (
         <div>
-          {!isTabAvailable(3, isBreakfast) && (
+          {!isTabAvailable(3, slot) && (
             <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
               <span>⏰</span>
               <span>No disponible por ahora — Las pizzas están disponibles desde las 11:30 AM</span>
             </div>
           )}
-          <div className={isTabAvailable(3, isBreakfast) ? '' : 'opacity-70 pointer-events-none select-none'}>
+          <div className={isTabAvailable(3, slot) ? '' : 'opacity-70 pointer-events-none select-none'}>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
             <p className="text-[12px] font-light text-[#555] leading-relaxed">
@@ -478,13 +486,13 @@ export default function MenuSection() {
       {/* ── OTROS ── */}
       {active === 5 && (
         <div>
-          {!isTabAvailable(5, isBreakfast) && (
+          {!isTabAvailable(5, slot) && (
             <div className="flex items-center gap-2 bg-[#111] border border-[#1e1e1e] rounded px-4 py-3 mb-4 text-[12px] text-[#444]">
               <span>⏰</span>
               <span>No disponible por ahora — Pinchos, hamburguesas y más están disponibles desde las 11:30 AM</span>
             </div>
           )}
-          <div className={isTabAvailable(5, isBreakfast) ? '' : 'opacity-70 pointer-events-none select-none'}>
+          <div className={isTabAvailable(5, slot) ? '' : 'opacity-70 pointer-events-none select-none'}>
           <div className="flex gap-3 items-start bg-[#111] border border-[#1e1e1e] rounded p-4 mb-6">
             <div className="w-2 h-2 rounded-full bg-[#D4A017] mt-1 flex-shrink-0" />
             <p className="text-[12px] font-light text-[#555] leading-relaxed">
