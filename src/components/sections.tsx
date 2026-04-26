@@ -16,7 +16,7 @@ export function AboutSection() {
             Comida honesta.<br />Precios justos.
           </h2>
           <p className="text-[14px] font-light text-[#777] leading-[1.8] mb-6">
-            En Macaregua no hay secretos. La bandeja llega completa. La pizza lleva los ingredientes que dice el menú. Llevamos años sirviendo a los profesionales de Girón, a los camioneros de paso por la Vía Chimita y a las familias que buscan un buen lugar donde comer sin complicaciones.
+            Nacimos en la vía a Chimitá, siendo el refugio y el sabor de quienes recorren las rutas de Santander. Hoy, mantenemos esa esencia: porciones generosas, precios justos y el sazón honesto que conquistó a los viajeros de paso. En Macaregua, cada plato cuenta una historia de camino y tradición.
           </p>
           <div className="grid grid-cols-3 gap-px bg-[#1a1a1a] rounded overflow-hidden">
             {[['4.4★','en Google'],['83','reseñas'],['7 días','a la semana']].map(([n,l]) => (
