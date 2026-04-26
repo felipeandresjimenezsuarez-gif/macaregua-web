@@ -97,8 +97,7 @@ const ACARTA_MAR: PlatoItem[] = [
   { name: 'Bagre Frito',          price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-bagre-frito.jpg' },
   { name: 'Bagre Sudado',         price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-bagre-sudado.jpg' },
   { name: 'Cazuela de Mariscos',  price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-mariscos.jpg' },
-  { name: 'Cazuela de Camarones', price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-mariscos.jpg' },
-  { name: 'Cazuela Mixta',        price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-mariscos.jpg' },
+  { name: 'Cazuela de Camarones', price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-camarones.jpg' },
 ]
 
 const ACARTA_PASTAS: PlatoItem[] = [
