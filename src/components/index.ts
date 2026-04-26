@@ -1,5 +1,4 @@
 export { default as StatsBar } from './StatsBar'
-export { default as Footer } from './Footer'
 export { AboutSection } from './sections'
 export { GMBSection } from './sections'
 export { WhatsAppSection } from './sections'

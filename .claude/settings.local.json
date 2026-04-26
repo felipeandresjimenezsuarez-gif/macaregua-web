@@ -19,7 +19,15 @@
       "Bash(py \"C:/Users/usuario/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/src/ui-ux-pro-max/scripts/search.py\" \"restaurant landing hero cta menu\" --domain landing)",
       "Bash(py \"C:/Users/usuario/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/src/ui-ux-pro-max/scripts/search.py\" \"hover touch feedback loading accessibility\" --domain ux -n 5)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git commit *)",
+      "Bash(mem_search \"SEO metadata layout macaregua\")",
+      "Bash(magick --version)",
+      "Bash(convert --version)",
+      "Bash(node -e \"const sharp = require\\('sharp'\\); console.log\\('sharp ok'\\);\")",
+      "Bash(npx tsc *)",
+      "Bash(node -e ' *)"
     ]
   }
 }

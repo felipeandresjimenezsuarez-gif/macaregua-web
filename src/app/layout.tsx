@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://macaregua.com'),
   title: 'Restaurante Macaregua | Comida Santandereana en Chimita · Domicilios Bucaramanga',
   description:
-    'Restaurante Macaregua — cocina santandereana auténtica en Vía Chimita Km 1, Girón. Almuerzos ejecutivos, pinchos, hamburguesas y domicilios a Bucaramanga. Abierto todos los días hasta las 11 PM.',
+    'Restaurante Macaregua — cocina santandereana auténtica en Vía Chimita Km 1, Girón. Almuerzos ejecutivos, pinchos, hamburguesas y domicilios a Bucaramanga. Abierto lunes a sábado hasta las 10:30 PM.',
   keywords: [
     'Restaurante Macaregua',
     'comida santandereana Chimita',
@@ -51,30 +51,29 @@ export const metadata: Metadata = {
     locale: 'es_CO',
     type: 'website',
   },
-  other: {
-    'application/ld+json': JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Restaurant',
-      name: 'Restaurante Macaregua',
-      servesCuisine: 'Colombian, Santandereana',
-      priceRange: '$$',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Vía Chimita #Km 1',
-        addressLocality: 'Girón',
-        addressRegion: 'Santander',
-        addressCountry: 'CO',
-      },
-      telephone: '+577676071905',
-      openingHours: 'Mo-Su 06:00-23:00',
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.4',
-        reviewCount: '83',
-      },
-      url: 'https://macaregua.com',
-    }),
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  name: 'Restaurante Macaregua',
+  servesCuisine: 'Colombian, Santandereana',
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Vía Chimita #Km 1',
+    addressLocality: 'Girón',
+    addressRegion: 'Santander',
+    addressCountry: 'CO',
   },
+  telephone: '+577676071905',
+  openingHours: 'Mo-Sa 06:30-22:30',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.4',
+    reviewCount: '83',
+  },
+  url: 'https://macaregua.com',
 }
 
 export default function RootLayout({
@@ -84,6 +83,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${merriweather.variable} ${dmSans.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      </head>
       <body className="font-sans antialiased">
         <ScrollReveal />
         {children}

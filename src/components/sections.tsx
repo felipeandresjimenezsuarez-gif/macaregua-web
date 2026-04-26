@@ -1,3 +1,4 @@
+'use client'
 // ─── AboutSection ─────────────────────────────────────────────────────────────
 import Image from 'next/image'
 
@@ -33,7 +34,7 @@ export function AboutSection() {
 
 // ─── GMBSection ───────────────────────────────────────────────────────────────
 const MAPS_URL = 'https://www.google.com/maps/place/Restaurante+Macaregua/@7.0882728,-73.1702669,17z/data=!4m6!3m5!1s0x8e683e64cb7d3f51:0xb33e3c2a097d0d0!8m2!3d7.0882728!4d-73.1702669!16s%2Fg%2F11bbrj6yv6'
-const REVIEW_URL = 'https://www.google.com/maps/place/Restaurante+Macaregua/@7.0882728,-73.1702669,17z/data=!4m6!3m5!1s0x8e683e64cb7d3f51:0xb33e3c2a097d0d0!8m2!3d7.0882728!4d-73.1702669!16s%2Fg%2F11bbrj6yv6'
+const REVIEW_URL = 'https://www.google.com/maps/place/Restaurante+Macaregua/@7.0882728,-73.1702669,17z/data=!4m6!3m5!1s0x8e683e64cb7d3f51:0xb33e3c2a097d0d0!8m2!3d7.0882728!4d-73.1702669!16s%2Fg%2F11bbrj6yv6#lrd=0x8e683e64cb7d3f51:0xb33e3c2a097d0d0,1'
 const WA_GMB = `https://wa.me/573052015683?text=${encodeURIComponent('Hola, quiero hacer un pedido 🍽️')}`
 
 const HORARIOS = [
@@ -382,7 +383,7 @@ export function ReviewsSection() {
 // ─── Footer ───────────────────────────────────────────────────────────────────
 export function Footer() {
   return (
-    <footer id="contacto" className="bg-[#070707] border-t border-[#141414] py-6 px-8">
+    <footer className="bg-[#070707] border-t border-[#141414] py-6 px-8">
       <div className="max-w-7xl mx-auto grid grid-cols-3 items-center gap-6">
         <div>
           <div className="font-serif text-[15px] font-bold text-white tracking-wide">

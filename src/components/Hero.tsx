@@ -68,7 +68,7 @@ export default function Hero() {
 
         <p className={`text-[11px] font-light text-white tracking-[0.16em] uppercase mb-9 drop-shadow-lg transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
            style={{ transitionDelay: '400ms' }}>
-          Donde cada plato tiene historia · Abierto hasta las 11 PM
+          Donde cada plato tiene historia · Abierto Lun–Sáb hasta las 10:30 PM
         </p>
 
         <div className={`flex flex-wrap gap-3 justify-center transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
@@ -86,6 +86,8 @@ export default function Hero() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
+              aria-label={`Ir a imagen ${i + 1}`}
+              aria-current={i === current ? 'true' : undefined}
               className={`h-px transition-all duration-300 ${i === current ? 'w-8 bg-[#D4A017]' : 'w-4 bg-[#333]'}`}
             />
           ))}

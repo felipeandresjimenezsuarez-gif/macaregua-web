@@ -69,6 +69,13 @@ const ALMUERZOS = [
     featured: true,
     img: '/images/foto-sancocho.jpg',
   },
+  {
+    name: 'Lasaña Especial',
+    desc: 'Lasaña rellena de champiñones, gratinada al horno. Incluye acompañamientos. Disponible hasta las 2:00 PM.',
+    price: '$38.000',
+    featured: false,
+    img: '/images/foto-lasagna-nuevaseccionalmuerzoespecial.jpg',
+  },
 ]
 
 // ─── A LA CARTA — organizadas por categoría ───────────────────────────────────
@@ -198,7 +205,8 @@ const TAB_HASHES = ['mananas', 'almuerzo', 'cenas',           'acarta',     'piz
 type TimeSlot = 'breakfast' | 'lunch' | 'dinner' | 'closed'
 
 function getTimeSlot(): TimeSlot {
-  const t = new Date().getHours() * 60 + new Date().getMinutes()
+  const now = new Date()
+  const t = now.getHours() * 60 + now.getMinutes()
   if (t < 6 * 60 + 30 || t >= 22 * 60 + 30) return 'closed'
   if (t < 11 * 60 + 30) return 'breakfast'
   if (t < 14 * 60)      return 'lunch'
@@ -330,8 +338,7 @@ function InfoBox({ children }: { children: React.ReactNode }) {
   )
 }
 
-function BebidaRow({ b, last }: { b: BebidaItem; last?: boolean }) {
-  void last
+function BebidaRow({ b }: { b: BebidaItem }) {
   return (
     <div className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
       <BebidaIcon type={b.type} />
@@ -361,11 +368,12 @@ function PlatoCard({ name, price, base, extras, img, waUrl }: PlatoItem & { waUr
   return (
     <div className="bg-[#0f0f0f] border border-[#1a1a1a] rounded overflow-hidden hover:border-[#2a2a2a] hover:-translate-y-0.5 transition-all duration-200">
       <div className="relative h-40 w-full overflow-hidden bg-[#1a1a1a]">
-        <img
+        <Image
           src={img}
           alt={name}
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
+          fill
+          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-transparent to-transparent" />
         <div className="absolute bottom-2 right-2">

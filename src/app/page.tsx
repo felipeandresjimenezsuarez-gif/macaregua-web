@@ -3,7 +3,7 @@ import Hero from '@/components/Hero'
 import StatsBar from '@/components/StatsBar'
 import InstagramSection from '@/components/InstagramSection'
 import dynamic from 'next/dynamic'
-import { AboutSection, GMBSection, ReviewsSection, Footer, WhatsAppFloat } from '@/components/sections'
+import { AboutSection, GMBSection, ReviewsSection, Footer, WhatsAppFloat, WhatsAppSection } from '@/components/sections'
 
 function MenuSkeleton() {
   return (
@@ -45,6 +45,8 @@ export default function Home() {
       <InstagramSection />
       <div className="h-px bg-[#1a1a1a] max-w-7xl mx-auto" />
       <AboutSection />
+      <div className="h-px bg-[#1a1a1a] max-w-7xl mx-auto" />
+      <WhatsAppSection />
       <div className="h-px bg-[#1a1a1a] max-w-7xl mx-auto" />
       <GMBSection />
       <div className="h-px bg-[#1a1a1a] max-w-7xl mx-auto" />
