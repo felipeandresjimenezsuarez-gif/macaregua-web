@@ -210,6 +210,7 @@ type TimeSlot = 'breakfast' | 'lunch' | 'dinner' | 'closed'
 
 function getTimeSlot(): TimeSlot {
   const now = new Date()
+  if (now.getDay() === 0) return 'closed'                    // Domingo — cerrado
   const t = now.getHours() * 60 + now.getMinutes()
   if (t < 6 * 60 + 30 || t >= 22 * 60 + 30) return 'closed'
   if (t < 11 * 60 + 30) return 'breakfast'
@@ -249,9 +250,12 @@ function getBannerInfo(slot: TimeSlot): BannerInfo {
     text: 'Pizzas, Parrilla y Platos a la carta disponibles ahora. Los Almuerzos regresan mañana a las 11:30 AM.',
     style: 'green',
   }
+  const isSunday = new Date().getDay() === 0
   return {
-    emoji: '⏰',
-    text: 'Estamos cerrados. Volvemos mañana a las 6:30 AM con el menú de Mañanas listo.',
+    emoji: '🔒',
+    text: isSunday
+      ? 'Hoy es domingo — estamos cerrados. Volvemos el lunes a las 6:30 AM.'
+      : 'Estamos cerrados. Volvemos mañana a las 6:30 AM con el menú de Mañanas listo.',
     style: 'muted',
   }
 }
