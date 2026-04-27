@@ -17,13 +17,13 @@ const MANANAS_FEATURED = [
     name: 'Santandereano de Costilla',
     desc: 'Costilla asada, pepitoria, caldo de costilla, arepa y bebida. El desayuno premium de la casa.',
     price: '$35.000',
-    img: '/images/foto-caldo-costilla.jpg',
+    img: '/images/foto-desayunosantandereano-decostilla-carne.jpg',
   },
   {
     name: 'Santandereano',
     desc: 'Carne asada, pepitoria, caldo, arepa y bebida. El sabor santandereano en Macaregua.',
     price: '$30.000',
-    img: '/images/foto-caldo-res.jpg',
+    img: '/images/foto-desayunosantandereano-huevo-carne.jpg',
   },
 ]
 
@@ -32,6 +32,9 @@ const MANANAS_ITEMS: PlatoItem[] = [
   { name: 'Caldo de Huevo',    price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$2.000', '+ Queso +$2.000'], img: '/images/foto-caldo-huevo.jpg' },
   { name: 'Huevos al Gusto',   price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$3.000'],                    img: '/images/foto-huevos-gusto.jpg' },
   { name: 'Bandeja de Carne',  price: '$20.000', base: 'Con bebida',  extras: [],                                        img: '/images/foto-bandeja-carne.jpg' },
+  { name: 'Caldo de Pollo',    price: '$18.000', base: 'Con bebida', extras: ['Papa, cilantro y proteína fresca de pollo', 'Arepas · Café o Chocolate'],     img: '/images/foto-caldo-pollo.jpg' },
+  { name: 'Huevos Rancheros', price: '$16.000', base: 'Con bebida', extras: ['Huevos revueltos con salchicha'],                img: '/images/foto-huevos-rancheros.jpg' },
+  { name: 'Arepa con Queso',  price: '$4.000',  base: 'Unidad',     extras: ['Queso Mozzarella'],                             img: '/images/foto-arepa-queso.jpg' },
 ]
 
 const MANANAS_COMBOS: BebidaItem[] = [
@@ -85,6 +88,7 @@ const ACARTA_CARNES: PlatoItem[] = [
   { name: 'Carne a la Plancha', price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-carne-guisada-asada.jpg' },
   { name: 'Cerdo a la Plancha', price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-cerdo-plancha.jpg' },
   { name: 'Sobrebarriga',       price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-sobrebarriga.jpg' },
+  { name: 'Milanesa de Carne', price: '$34.000', base: 'Res apanada',     extras: ['Queso mozzarella fundido', 'Papa a la francesa'],  img: '/images/foto-milanesa-carne.jpg' },
 ]
 
 const ACARTA_AVES: PlatoItem[] = [
@@ -105,6 +109,7 @@ const ACARTA_PASTAS: PlatoItem[] = [
   { name: 'Lasagna Especial',        price: '$38.000', base: 'Champiñón',       extras: ['Incluye acompañamientos'],               img: '/images/foto-lasagna-especial.jpg' },
   { name: 'Pollo Nuggets Marinero',  price: '$42.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pollo-plancha.jpg' },
   { name: 'Pollo Nuggets Corriente', price: '$37.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pollo-plancha.jpg' },
+  { name: 'Espaguetis',        price: '$32.000', base: 'Salsa artesanal', extras: ['Queso gratinado', 'Papa a la francesa'],        img: '/images/foto-spaguettis.jpg' },
 ]
 
 // ─── PIZZAS ───────────────────────────────────────────────────────────────────
@@ -132,7 +137,7 @@ const PANCEROTTI_ITEM = { name: 'Panzerotti', price: '$29.000', base: 'Precio fi
 const OTROS: PlatoItem[] = [
   { name: 'Pincho Mixto',                       price: '$38.000',  base: 'Precio base',              extras: [],                                                               img: '/images/foto-pincho-mixto.jpg' },
   { name: 'Pincho de Carne',                    price: '$38.000',  base: 'Precio base',              extras: [],                                                               img: '/images/foto-pincho-carne.jpg' },
-  { name: 'Pincho de Cerdo',                    price: '$36.000',  base: 'Precio base',              extras: [],                                                               img: '/images/foto-pincho-mixto.jpg' },
+  { name: 'Pincho de Cerdo',                    price: '$36.000',  base: 'Precio base',              extras: [],                                                               img: '/images/foto-pincho-cerdo.jpg' },
   { name: 'Pincho de Pollo',                    price: '$36.000',  base: 'Precio base',              extras: [],                                                               img: '/images/foto-pincho-pollo.jpg' },
   { name: 'Picada Grande',                      price: '$120.000', base: 'Lomito res, pollo, cerdo', extras: ['Cebollita, tomate, queso, papa criolla y a la francesa'],        img: '/images/foto-picada.jpg' },
   { name: 'Picada Pequeña',                     price: '$80.000',  base: 'Lomito res, pollo, cerdo', extras: ['Cebollita, tomate, queso, papa criolla y a la francesa'],        img: '/images/foto-picada.jpg' },
@@ -140,7 +145,7 @@ const OTROS: PlatoItem[] = [
   { name: 'Hamburguesa Corriente',              price: '$29.000',  base: 'Solo carne',               extras: [],                                                               img: '/images/foto-hamburguesa-sencilla.jpg' },
   { name: 'Sándwich de Pollo',                  price: '$24.000',  base: 'Precio base',              extras: [],                                                               img: '/images/foto-sandwich-pollo-queso.jpg' },
   { name: 'Sándwich de Jamón y Queso',          price: '$17.000',  base: 'Precio base',              extras: [],                                                               img: '/images/foto-sandwich-jamon-queso.jpg' },
-  { name: 'Papa a la Francesa con Queso',       price: '$13.000',  base: 'Porción',                  extras: [],                                                               img: '/images/foto-papa-francesa-tocineta-queso.jpg' },
+  { name: 'Papa a la Francesa con Queso',       price: '$13.000',  base: 'Porción',                  extras: [],                                                               img: '/images/foto-papa-francesa.jpg' },
   { name: 'Papa Francesa con Queso y Tocineta', price: '$17.000',  base: 'Porción',                  extras: [],                                                               img: '/images/foto-papa-francesa-tocineta-queso.jpg' },
 ]
 
@@ -560,6 +565,7 @@ export default function MenuSection() {
               <span>Almuerzos disponibles de 11:30 AM a 2:00 PM · {slot === 'breakfast' ? 'Volvemos al mediodía' : 'Servicio finalizado por hoy'}</span>
             </div>
           )}
+          <SectionLabel>Almuerzo Especial</SectionLabel>
           <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${isTabAvailable(1, slot) ? '' : 'opacity-70 pointer-events-none select-none'}`}>
             {ALMUERZOS.map((p) => (
               <div key={p.name}

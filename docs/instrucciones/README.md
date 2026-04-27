@@ -149,4 +149,4 @@ NEXT_PUBLIC_WA_NUMBER=573052015683
 ---
 
 ## Contacto técnico
-Desarrollado por Felipe Jiménez · Bucaramanga, Santander
+Desarrollado por Felipe Jiménez · Girón Santander

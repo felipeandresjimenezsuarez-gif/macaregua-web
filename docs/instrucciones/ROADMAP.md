@@ -95,7 +95,7 @@ Mostrar la categoría activa según la hora del día para evitar pedidos fuera d
 
 #### 5. Sección de Ubicación / Cómo llegar
 - Mapa embebido de Google Maps apuntando a Vía Chimita Km 1
-- Instrucciones de cómo llegar desde Bucaramanga y desde Girón centro
+- Instrucciones de cómo llegar desde Girón Santander y desde Girón centro
 - Énfasis visual en la ubicación para atraer tráfico local del área
 - Tiempo estimado: 1 sesión con Claude
 

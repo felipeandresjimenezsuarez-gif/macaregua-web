@@ -7,8 +7,8 @@ const WA_URL = `https://wa.me/573052015683?text=${encodeURIComponent('Hola, me g
 const HERO_IMAGES = [
   { src: '/images/FOTO-ANCHA-POLLO.jpg',     alt: 'Pollo a la plancha Macaregua' },
   { src: '/images/FOTO-ANCHA-MOJARRA.jpg',   alt: 'Mojarra frita Macaregua' },
-  { src: '/images/foto-bandeja-paisa.jpg',   alt: 'Bandeja Paisa Macaregua' },
-  { src: '/images/foto-cazuela-mariscos.jpg', alt: 'Cazuela de Mariscos' },
+  { src: '/images/FOTO-ANCHA-FRIJOL.jpg',    alt: 'Bandeja Paisa Macaregua' },
+  { src: '/images/FOTO-ANCHA-SPAGUETI.jpg',  alt: 'Espaguetis Macaregua' },
 ]
 
 export default function Hero() {

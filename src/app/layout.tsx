@@ -25,26 +25,26 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://macaregua.com'),
-  title: 'Restaurante Macaregua | Comida Santandereana en Chimita · Domicilios Bucaramanga',
+  title: 'Restaurante Macaregua | Comida Santandereana en Chimita · Domicilios Girón Santander',
   description:
-    'Restaurante Macaregua — cocina santandereana auténtica en Vía Chimita Km 1, Girón. Almuerzos ejecutivos, pinchos, hamburguesas y domicilios a Bucaramanga. Abierto lunes a sábado hasta las 10:30 PM.',
+    'Restaurante Macaregua — cocina santandereana auténtica en Vía Chimita Km 1, Girón. Almuerzos ejecutivos, pinchos, hamburguesas y domicilios a Girón Santander. Abierto lunes a sábado hasta las 10:30 PM.',
   keywords: [
     'Restaurante Macaregua',
     'comida santandereana Chimita',
     'restaurante Vía Chimita',
-    'domicilios Bucaramanga',
+    'domicilios Girón Santander',
     'domicilios Girón Santander',
     'almuerzo ejecutivo Girón',
-    'pinchos Bucaramanga',
+    'pinchos Girón Santander',
     'hamburguesas Chimita',
     'restaurante colombiano Girón',
-    'comida a domicilio Bucaramanga',
+    'comida a domicilio Girón Santander',
     'restaurante Girón Santander',
   ],
   openGraph: {
     title: 'Restaurante Macaregua · Comida Santandereana en Chimita',
     description:
-      'Cocina santandereana auténtica a domicilio en Bucaramanga y Girón. Pinchos, hamburguesas, almuerzos ejecutivos. Pedí por WhatsApp.',
+      'Cocina santandereana auténtica a domicilio en Girón, Santander. Pinchos, hamburguesas, almuerzos ejecutivos. Pedí por WhatsApp.',
     url: 'https://macaregua.com',
     siteName: 'Restaurante Macaregua',
     images: [{ url: '/images/logo-macaregua.png', width: 800, height: 800, alt: 'Logo Restaurante Macaregua' }],
