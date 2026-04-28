@@ -118,17 +118,17 @@ const ACARTA_PASTAS: PlatoItem[] = [
 
 const PIZZAS_ESPECIALES = [
   { name: 'Pizza Marinera',    price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/pizza-marinera.jpg' },
-  { name: 'Pizza Ritmo',       price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'] },
+  { name: 'Pizza Ritmo',       price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/pizza-ritmo.jpg' },
   { name: 'Pizza Tropical',    price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/foto-pizza-tropical.jpg' },
   { name: 'Pizza Vegetariana', price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/foto-pizza-vegetariana.jpg' },
 ]
 
 const PIZZAS_CLASICAS = [
   { name: 'Pizza Hawaiana',   price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-hawaiana.jpg' },
-  { name: 'Pizza de Carnes',  price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
+  { name: 'Pizza de Carnes',  price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-carnes.jpg' },
   { name: 'Pizza Peperoneta', price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-peperoneta.jpg' },
   { name: 'Pizza Mexicana',   price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-mexicana.jpg' },
-  { name: 'Pizza Napolitana', price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
+  { name: 'Pizza Napolitana', price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-frutas.jpg' },
 ]
 
 const PANCEROTTI_ITEM = { name: 'Panzerotti', price: '$29.000', base: 'Precio fijo', extras: [] }
