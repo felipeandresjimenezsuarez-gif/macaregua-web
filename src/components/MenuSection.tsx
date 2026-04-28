@@ -124,11 +124,17 @@ const PIZZAS_ESPECIALES = [
 ]
 
 const PIZZAS_CLASICAS = [
-  { name: 'Pizza Hawaiana',   price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-hawaiana.jpg' },
-  { name: 'Pizza de Carnes',  price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-carnes.jpg' },
-  { name: 'Pizza Peperoneta', price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-peperoneta.jpg' },
-  { name: 'Pizza Mexicana',   price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-mexicana.jpg' },
-  { name: 'Pizza Napolitana', price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-frutas.jpg' },
+  { name: 'Pizza Hawaiana',                  price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-hawaiana.jpg' },
+  { name: 'Pizza de Carnes',                 price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-carnes.jpg' },
+  { name: 'Pizza Peperoneta',                price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-peperoneta.jpg' },
+  { name: 'Pizza Mexicana',                  price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-mexicana.jpg' },
+  { name: 'Pizza Napolitana',                price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-frutas.jpg' },
+  { name: 'Pizza Boloñesa',                  price: '$35.000', base: 'Carne molida · Queso',  extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
+  { name: 'Pizza Jamón Pollo Tocineta',      price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
+  { name: 'Pizza Champiñones y Pollo',       price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
+  { name: 'Pizza Salami Camarón',            price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
+  { name: 'Pizza Jamón Pollo Champiñones',   price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
+  { name: 'Pizza Jamón y Queso',             price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
 ]
 
 const PANCEROTTI_ITEM = { name: 'Panzerotti', price: '$29.000', base: 'Precio fijo', extras: [] }
