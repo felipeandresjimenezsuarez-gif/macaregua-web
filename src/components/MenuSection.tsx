@@ -121,6 +121,7 @@ const PIZZAS_ESPECIALES = [
   { name: 'Pizza Ritmo',       price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/pizza-ritmo.jpg' },
   { name: 'Pizza Tropical',    price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/foto-pizza-tropical.jpg' },
   { name: 'Pizza Vegetariana', price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/foto-pizza-vegetariana.jpg' },
+  { name: 'Pizza Frutas',      price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/pizza-frutas.jpg' },
 ]
 
 const PIZZAS_CLASICAS = [
@@ -129,15 +130,15 @@ const PIZZAS_CLASICAS = [
   { name: 'Pizza Peperoneta',                price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-peperoneta.jpg' },
   { name: 'Pizza Mexicana',                  price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-mexicana.jpg' },
   { name: 'Pizza Napolitana',                price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-frutas.jpg' },
-  { name: 'Pizza Boloñesa',                  price: '$35.000', base: 'Carne molida · Queso',  extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
-  { name: 'Pizza Jamón Pollo Tocineta',      price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
-  { name: 'Pizza Champiñones y Pollo',       price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
-  { name: 'Pizza Salami Camarón',            price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
-  { name: 'Pizza Jamón Pollo Champiñones',   price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
-  { name: 'Pizza Jamón y Queso',             price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
+  { name: 'Pizza Boloñesa',                  price: '$35.000', base: 'Carne molida · Queso',  extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-carnes.jpg' },
+  { name: 'Pizza Jamón Pollo Tocineta',      price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-hawaiana.jpg' },
+  { name: 'Pizza Champiñones y Pollo',       price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-vegetariana.jpg' },
+  { name: 'Pizza Salami Camarón',            price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-marinera.jpg' },
+  { name: 'Pizza Jamón Pollo Champiñones',   price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-mexicana.jpg' },
+  { name: 'Pizza Jamón y Queso',             price: '$35.000', base: 'Personal',              extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-peperoneta.jpg' },
 ]
 
-const PANCEROTTI_ITEM = { name: 'Panzerotti', price: '$29.000', base: 'Precio fijo', extras: [] }
+const PANCEROTTI_ITEM = { name: 'Panzerotti', price: '$29.000', base: 'Precio fijo', extras: [], img: '/images/foto-Panzerotti.jpg' }
 
 // ─── CENAS & PARRILLA ────────────────────────────────────────────────────────
 
@@ -757,7 +758,9 @@ export default function MenuSection() {
             <SectionLabel>Panzerotti</SectionLabel>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
               <div className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-                <PizzaIcon />
+                <div className="relative w-14 h-14 rounded flex-shrink-0 overflow-hidden">
+                  <Image src={PANCEROTTI_ITEM.img} alt={PANCEROTTI_ITEM.name} fill sizes="56px" className="object-cover object-center" />
+                </div>
                 <div className="flex-1 min-w-0">
                   <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{PANCEROTTI_ITEM.name}</div>
                   <div className="flex gap-1.5">
