@@ -102,13 +102,14 @@ const ACARTA_MAR: PlatoItem[] = [
   { name: 'Bagre Sudado',         price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-bagre-sudado.jpg' },
   { name: 'Cazuela de Mariscos',  price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-mariscos.jpg' },
   { name: 'Cazuela de Camarones', price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-camarones.jpg' },
+  { name: 'Cazuela Mixta',        price: '$38.000', base: 'Bagre · Camarón', extras: ['Arroz, ensalada, papa a la francesa o patacón'], img: '/images/foto-cazuela-mixta.jpg' },
 ]
 
 const ACARTA_PASTAS: PlatoItem[] = [
   { name: 'Lasagna Mixta',           price: '$32.000', base: 'Carne, pollo',    extras: ['Incluye acompañamientos'],               img: '/images/foto-lasagna-.jpg' },
   { name: 'Lasagna Especial',        price: '$38.000', base: 'Champiñón',       extras: ['Incluye acompañamientos'],               img: '/images/foto-lasagna-especial.jpg' },
-  { name: 'Pollo Nuggets Marinero',  price: '$42.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pollo-plancha.jpg' },
-  { name: 'Pollo Nuggets Corriente', price: '$37.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'],   img: '/images/foto-pollo-plancha.jpg' },
+  { name: 'Pollo Nuggets Marinero',  price: '$42.000', base: 'Acompañamientos', extras: ['Papa a la francesa'],                   img: '/images/Pollo-Nuggets-Marinero.jpg' },
+  { name: 'Pollo Nuggets Corriente', price: '$37.000', base: 'Acompañamientos', extras: ['Papa a la francesa'],                   img: '/images/Pollo-Nuggets-corriente.jpg' },
   { name: 'Espaguetis',        price: '$32.000', base: 'Salsa artesanal', extras: ['Queso gratinado', 'Papa a la francesa'],        img: '/images/foto-spaguettis.jpg' },
 ]
 
@@ -116,17 +117,17 @@ const ACARTA_PASTAS: PlatoItem[] = [
 // Precios: Personal | Pequeña (+diferencia) | Mediana (+diferencia) | Maxi (+diferencia)
 
 const PIZZAS_ESPECIALES = [
-  { name: 'Pizza Marinera',    price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'] },
+  { name: 'Pizza Marinera',    price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/pizza-marinera.jpg' },
   { name: 'Pizza Ritmo',       price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'] },
-  { name: 'Pizza Frutas',      price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'] },
-  { name: 'Pizza Vegetariana', price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'] },
+  { name: 'Pizza Tropical',    price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/foto-pizza-tropical.jpg' },
+  { name: 'Pizza Vegetariana', price: '$38.000', base: 'Personal', extras: ['Pequeña +$12.000', 'Mediana +$37.000', 'Maxi +$57.000'], img: '/images/foto-pizza-vegetariana.jpg' },
 ]
 
 const PIZZAS_CLASICAS = [
-  { name: 'Pizza Hawaiana',   price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
+  { name: 'Pizza Hawaiana',   price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-hawaiana.jpg' },
   { name: 'Pizza de Carnes',  price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
-  { name: 'Pizza Pepperoni',  price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
-  { name: 'Pizza Mexicana',   price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
+  { name: 'Pizza Peperoneta', price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/pizza-peperoneta.jpg' },
+  { name: 'Pizza Mexicana',   price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'], img: '/images/foto-pizza-mexicana.jpg' },
   { name: 'Pizza Napolitana', price: '$35.000', base: 'Personal', extras: ['Pequeña +$13.000', 'Mediana +$37.000', 'Maxi +$50.000'] },
 ]
 
@@ -689,7 +690,13 @@ export default function MenuSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden mb-6">
               {PIZZAS_ESPECIALES.map((p) => (
                 <div key={p.name} className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-                  <PizzaIcon />
+                  {'img' in p && p.img ? (
+                    <div className="relative w-14 h-14 rounded flex-shrink-0 overflow-hidden">
+                      <Image src={p.img} alt={p.name} fill sizes="56px" className="object-cover object-center" />
+                    </div>
+                  ) : (
+                    <PizzaIcon />
+                  )}
                   <div className="flex-1 min-w-0">
                     <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{p.name}</div>
                     <div className="flex gap-1.5 flex-wrap">
@@ -714,7 +721,13 @@ export default function MenuSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden mb-6">
               {PIZZAS_CLASICAS.map((p) => (
                 <div key={p.name} className="bg-[#0f0f0f] p-4 flex items-center gap-4 hover:bg-[#131313] transition-colors">
-                  <PizzaIcon />
+                  {'img' in p && p.img ? (
+                    <div className="relative w-14 h-14 rounded flex-shrink-0 overflow-hidden">
+                      <Image src={p.img} alt={p.name} fill sizes="56px" className="object-cover object-center" />
+                    </div>
+                  ) : (
+                    <PizzaIcon />
+                  )}
                   <div className="flex-1 min-w-0">
                     <div className="font-serif text-[15px] font-normal text-[#ddd] mb-1 leading-snug">{p.name}</div>
                     <div className="flex gap-1.5 flex-wrap">
