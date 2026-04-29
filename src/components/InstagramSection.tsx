@@ -7,7 +7,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/restaurante_macaregua/'
 const REELS = [
   { url: 'https://www.instagram.com/restaurante_macaregua/reel/DCUlIK0PIg8/', img: '/images/foto-pollo-plancha.jpg',    label: 'Pollo a la plancha' },
   { url: 'https://www.instagram.com/restaurante_macaregua/reel/DBclwl0vLR7/', img: '/images/foto-caldo-costilla.jpg',   label: 'Caldo de costilla' },
-  { url: 'https://www.instagram.com/restaurante_macaregua/reel/DAbYImHMVR2/', img: '/images/foto-bandeja-paisa.jpg',    label: 'Bandeja paisa' },
+  { url: 'https://www.instagram.com/restaurante_macaregua/reel/DAbYImHMVR2/', img: '/images/foto-sancocho.jpg',         label: 'Bandeja paisa' },
   { url: 'https://www.instagram.com/restaurante_macaregua/reel/C_I0J8HOQzb/', img: '/images/foto-caldo-huevo.jpg',      label: 'Caldo con huevo' },
   { url: 'https://www.instagram.com/restaurante_macaregua/reel/C_HZuaYMKWL/', img: '/images/foto-cazuela-mariscos.jpg', label: 'Cazuela de mariscos' },
   { url: 'https://www.instagram.com/restaurante_macaregua/reel/C-thg_rp6tU/', img: '/images/foto-arroz-pollo.jpg',      label: 'Arroz con pollo' },

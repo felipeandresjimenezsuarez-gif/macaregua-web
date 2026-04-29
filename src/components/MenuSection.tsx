@@ -15,13 +15,13 @@ type BebidaItem  = { name: string; price: string; base: string; extras: string[]
 const MANANAS_FEATURED = [
   {
     name: 'Santandereano de Costilla',
-    desc: 'Costilla asada, pepitoria, caldo de costilla, arepa y bebida. El desayuno premium de la casa.',
+    desc: 'Costilla asada, caldo de costilla, arepa y bebida. El desayuno premium de la casa.',
     price: '$35.000',
     img: '/images/foto-desayunosantandereano-decostilla-carne.jpg',
   },
   {
     name: 'Santandereano',
-    desc: 'Carne asada, pepitoria, caldo, arepa y bebida. El sabor santandereano en Macaregua.',
+    desc: 'Carne asada, caldo, arepa y bebida. El sabor santandereano en Macaregua.',
     price: '$30.000',
     img: '/images/foto-desayunosantandereano-huevo-carne.jpg',
   },
@@ -31,8 +31,7 @@ const MANANAS_ITEMS: PlatoItem[] = [
   { name: 'Caldo de Costilla', price: '$18.000', base: 'Con bebida',  extras: ['Sin bebida −$2.000'],                    img: '/images/foto-caldo-costilla.jpg' },
   { name: 'Caldo de Huevo',    price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$2.000', '+ Queso +$2.000'], img: '/images/foto-caldo-huevo.jpg' },
   { name: 'Huevos al Gusto',   price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$3.000'],                    img: '/images/foto-huevos-gusto.jpg' },
-  { name: 'Bandeja de Carne',  price: '$20.000', base: 'Con bebida',  extras: [],                                        img: '/images/foto-bandeja-carne.jpg' },
-  { name: 'Caldo de Pollo',    price: '$18.000', base: 'Con bebida', extras: ['Papa, cilantro y proteína fresca de pollo', 'Arepas · Café o Chocolate'],     img: '/images/foto-caldo-pollo.jpg' },
+  { name: 'Bandeja de Carne',  price: '$20.000', base: 'Con bebida',  extras: ['Arroz, Ensalada Corriente y Arepa'],      img: '/images/foto-bandeja-carne.jpg' },
   { name: 'Huevos Rancheros', price: '$16.000', base: 'Con bebida', extras: ['Huevos revueltos con salchicha'],                img: '/images/foto-huevos-rancheros.jpg' },
   { name: 'Arepa con Queso',  price: '$4.000',  base: 'Unidad',     extras: ['Queso Mozzarella'],                             img: '/images/foto-arepa-queso.jpg' },
 ]
@@ -63,7 +62,7 @@ const ALMUERZOS = [
     desc: 'El plato tradicional de la casa. Sopa, seco y jugo. La experiencia Macaregua.',
     price: '$22.000',
     featured: false,
-    img: '/images/foto-bandeja-paisa.jpg',
+    img: '/images/almuerzo-corriente.jpg',
   },
   {
     name: 'Corriente Mixto',
@@ -72,8 +71,18 @@ const ALMUERZOS = [
     featured: true,
     img: '/images/foto-sancocho.jpg',
   },
+]
+
+const ALMUERZOS_ESPECIALES = [
   {
-    name: 'Lasaña Especial',
+    name: 'Cazuela de Frijoles',
+    desc: 'Cazuela de frijoles con todos los acompañamientos de la casa. Sabor tradicional colombiano.',
+    price: '$25.000',
+    featured: false,
+    img: '/images/foto-cazuela-frijoles.jpg',
+  },
+  {
+    name: 'Lasaña',
     desc: 'Lasaña rellena de champiñones, gratinada al horno. Incluye acompañamientos. Disponible hasta las 2:00 PM.',
     price: '$38.000',
     featured: false,
@@ -160,7 +169,7 @@ const OTROS: PlatoItem[] = [
 // ─── BEBIDAS ─────────────────────────────────────────────────────────────────
 
 const BEBIDAS: BebidaItem[] = [
-  { name: 'Agua',                    price: '$7.000',  base: 'Vaso',        extras: ['Botella +$3.000'],         type: 'agua' },
+  { name: 'Agua (Botella)',           price: '$3.000',  base: 'Precio fijo', extras: [],                          type: 'agua' },
   { name: 'Leche',                   price: '$8.000',  base: 'Vaso',        extras: ['Botella +$3.000'],         type: 'caliente' },
   { name: 'Jugo Natural',            price: '$7.000',  base: 'Vaso',        extras: ['Vaso grande +$2.000'],     type: 'jugo' },
   { name: 'Limonada Natural',        price: '$7.000',  base: 'Jarra',       extras: ['Vaso individual +$2.000'], type: 'jugo' },
@@ -577,45 +586,88 @@ export default function MenuSection() {
               <span>Almuerzos disponibles de 11:30 AM a 2:00 PM · {slot === 'breakfast' ? 'Volvemos al mediodía' : 'Servicio finalizado por hoy'}</span>
             </div>
           )}
-          <SectionLabel>Almuerzo Especial</SectionLabel>
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${isTabAvailable(1, slot) ? '' : 'opacity-70 pointer-events-none select-none'}`}>
-            {ALMUERZOS.map((p) => (
-              <div key={p.name}
-                className={`relative rounded overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
-                  p.featured ? 'border-[1.5px] border-[#D4A017]' : 'border border-[#1e1e1e] hover:border-[#333]'
-                }`}
-              >
-                {p.featured && (
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#D4A017] text-[#1a0f00] text-[10px] font-medium px-4 py-1 rounded-b tracking-wider z-10">
-                    ★ Más popular
+          <div className={isTabAvailable(1, slot) ? '' : 'opacity-70 pointer-events-none select-none'}>
+            <SectionLabel>Almuerzos Corrientes</SectionLabel>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              {ALMUERZOS.map((p) => (
+                <div key={p.name}
+                  className={`relative rounded overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
+                    p.featured ? 'border-[1.5px] border-[#D4A017]' : 'border border-[#1e1e1e] hover:border-[#333]'
+                  }`}
+                >
+                  {p.featured && (
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#D4A017] text-[#1a0f00] text-[10px] font-medium px-4 py-1 rounded-b tracking-wider z-10">
+                      ★ Más popular
+                    </div>
+                  )}
+                  <div className="h-44 w-full relative overflow-hidden bg-[#111]">
+                    <Image
+                      src={p.img}
+                      alt={p.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/10 to-transparent" />
                   </div>
-                )}
-                <div className="h-44 w-full relative overflow-hidden bg-[#111]">
-                  <Image
-                    src={p.img}
-                    alt={p.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/10 to-transparent" />
+                  <div className="bg-[#111] p-5">
+                    <h3 className="font-serif text-[19px] font-normal text-[#f0f0f0] mb-2 leading-snug">{p.name}</h3>
+                    <p className="text-[13px] font-light text-[#555] leading-relaxed mb-4">{p.desc}</p>
+                    <div className="font-serif text-[28px] font-light text-[#D4A017]">{p.price}</div>
+                    <div className="text-[9px] font-light text-[#333] tracking-widest mt-1 mb-4">IVA INCLUIDO</div>
+                    <a href={WA(p.name)} target="_blank" rel="noopener noreferrer"
+                      className={`block w-full text-center text-[11px] font-medium py-2.5 rounded-sm tracking-widest uppercase transition-all duration-200 ${
+                        p.featured
+                          ? 'bg-[#D4A017] text-[#1a0f00] hover:opacity-85'
+                          : 'bg-transparent text-[#555] border border-[#222] hover:border-[#D4A017] hover:text-[#D4A017]'
+                      }`}>
+                      Ordenar por WhatsApp
+                    </a>
+                  </div>
                 </div>
-                <div className="bg-[#111] p-5">
-                  <h3 className="font-serif text-[19px] font-normal text-[#f0f0f0] mb-2 leading-snug">{p.name}</h3>
-                  <p className="text-[13px] font-light text-[#555] leading-relaxed mb-4">{p.desc}</p>
-                  <div className="font-serif text-[28px] font-light text-[#D4A017]">{p.price}</div>
-                  <div className="text-[9px] font-light text-[#333] tracking-widest mt-1 mb-4">IVA INCLUIDO</div>
-                  <a href={WA(p.name)} target="_blank" rel="noopener noreferrer"
-                    className={`block w-full text-center text-[11px] font-medium py-2.5 rounded-sm tracking-widest uppercase transition-all duration-200 ${
-                      p.featured
-                        ? 'bg-[#D4A017] text-[#1a0f00] hover:opacity-85'
-                        : 'bg-transparent text-[#555] border border-[#222] hover:border-[#D4A017] hover:text-[#D4A017]'
-                    }`}>
-                    Ordenar por WhatsApp
-                  </a>
+              ))}
+            </div>
+
+            <SectionLabel>Almuerzos Especiales</SectionLabel>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {ALMUERZOS_ESPECIALES.map((p) => (
+                <div key={p.name}
+                  className={`relative rounded overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
+                    p.featured ? 'border-[1.5px] border-[#D4A017]' : 'border border-[#1e1e1e] hover:border-[#333]'
+                  }`}
+                >
+                  {p.featured && (
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#D4A017] text-[#1a0f00] text-[10px] font-medium px-4 py-1 rounded-b tracking-wider z-10">
+                      ★ Más popular
+                    </div>
+                  )}
+                  <div className="h-44 w-full relative overflow-hidden bg-[#111]">
+                    <Image
+                      src={p.img}
+                      alt={p.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/10 to-transparent" />
+                  </div>
+                  <div className="bg-[#111] p-5">
+                    <h3 className="font-serif text-[19px] font-normal text-[#f0f0f0] mb-2 leading-snug">{p.name}</h3>
+                    <p className="text-[13px] font-light text-[#555] leading-relaxed mb-4">{p.desc}</p>
+                    <div className="font-serif text-[28px] font-light text-[#D4A017]">{p.price}</div>
+                    <div className="text-[9px] font-light text-[#333] tracking-widest mt-1 mb-4">IVA INCLUIDO</div>
+                    <a href={WA(p.name)} target="_blank" rel="noopener noreferrer"
+                      className={`block w-full text-center text-[11px] font-medium py-2.5 rounded-sm tracking-widest uppercase transition-all duration-200 ${
+                        p.featured
+                          ? 'bg-[#D4A017] text-[#1a0f00] hover:opacity-85'
+                          : 'bg-transparent text-[#555] border border-[#222] hover:border-[#D4A017] hover:text-[#D4A017]'
+                      }`}>
+                      Ordenar por WhatsApp
+                    </a>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       )}
