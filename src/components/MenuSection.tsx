@@ -77,14 +77,14 @@ const ALMUERZOS_ESPECIALES = [
   {
     name: 'Cazuela de Frijoles',
     desc: 'Cazuela de frijoles con todos los acompañamientos de la casa. Sabor tradicional colombiano.',
-    price: '$25.000',
+    price: '$32.000',
     featured: false,
     img: '/images/foto-cazuela-frijoles.jpg',
   },
   {
     name: 'Lasaña',
     desc: 'Lasaña rellena de champiñones, gratinada al horno. Incluye acompañamientos. Disponible hasta las 2:00 PM.',
-    price: '$38.000',
+    price: '$32.000',
     featured: false,
     img: '/images/foto-lasagna-nuevaseccionalmuerzoespecial.jpg',
   },
