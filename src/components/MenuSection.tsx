@@ -90,7 +90,7 @@ const ALMUERZOS_ESPECIALES = [
   },
   {
     name: 'Espaguetis',
-    desc: 'Salsa artesanal, queso gratinado y papa a la francesa.',
+    desc: 'Salsa artesanal, queso gratinado y papa criolla frita.',
     price: '$32.000',
     featured: false,
     img: '/images/foto-spaguettis.jpg',
@@ -126,7 +126,7 @@ const ACARTA_PASTAS: PlatoItem[] = [
   { name: 'Lasagna Especial',        price: '$38.000', base: 'Champiñón',       extras: ['Incluye acompañamientos'],               img: '/images/foto-lasagna-especial.jpg' },
   { name: 'Pollo Nuggets Marinero',  price: '$42.000', base: 'Acompañamientos', extras: ['Papa a la francesa'],                   img: '/images/Pollo-Nuggets-Marinero.jpg' },
   { name: 'Pollo Nuggets Corriente', price: '$37.000', base: 'Acompañamientos', extras: ['Papa a la francesa'],                   img: '/images/Pollo-Nuggets-corriente.jpg' },
-  { name: 'Espaguetis',        price: '$32.000', base: 'Salsa artesanal', extras: ['Queso gratinado', 'Papa a la francesa'],        img: '/images/foto-spaguettis.jpg' },
+  { name: 'Espaguetis',        price: '$32.000', base: 'Salsa artesanal', extras: ['Queso gratinado', 'Papa criolla frita'],        img: '/images/foto-spaguettis.jpg' },
 ]
 
 // ─── PIZZAS ───────────────────────────────────────────────────────────────────
