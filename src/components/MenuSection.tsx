@@ -88,6 +88,13 @@ const ALMUERZOS_ESPECIALES = [
     featured: false,
     img: '/images/foto-lasagna-nuevaseccionalmuerzoespecial.jpg',
   },
+  {
+    name: 'Espaguetis',
+    desc: 'Salsa artesanal, queso gratinado y papa a la francesa.',
+    price: '$32.000',
+    featured: false,
+    img: '/images/foto-spaguettis.jpg',
+  },
 ]
 
 // ─── A LA CARTA — organizadas por categoría ───────────────────────────────────
