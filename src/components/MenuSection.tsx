@@ -177,12 +177,12 @@ const OTROS: PlatoItem[] = [
 
 const BEBIDAS: BebidaItem[] = [
   { name: 'Agua (Botella)',           price: '$3.000',  base: 'Precio fijo', extras: [],                          type: 'agua' },
-  { name: 'Leche',                   price: '$8.000',  base: 'Vaso',        extras: ['Botella +$3.000'],         type: 'caliente' },
-  { name: 'Jugo Natural',            price: '$7.000',  base: 'Vaso',        extras: ['Vaso grande +$2.000'],     type: 'jugo' },
-  { name: 'Limonada Natural',        price: '$7.000',  base: 'Jarra',       extras: ['Vaso individual +$2.000'], type: 'jugo' },
-  { name: 'Limonada de Coco',        price: '$10.000', base: 'Jarra',       extras: ['Vaso individual +$3.000'], type: 'jugo' },
-  { name: 'Limonada de Hierbabuena', price: '$10.000', base: 'Jarra',       extras: ['Vaso individual +$3.000'], type: 'jugo' },
-  { name: 'Gaseosa',                 price: '$2.500',  base: 'Lata/Vaso',   extras: ['Botella 2L +$5.000'],      type: 'gaseosa' },
+  { name: 'Leche',                   price: '$8.000',  base: 'Vaso',        extras: [],                          type: 'caliente' },
+  { name: 'Jugo Natural',            price: '$7.000',  base: 'Vaso',        extras: [],                          type: 'jugo' },
+  { name: 'Limonada Natural',        price: '$7.000',  base: 'Jarra',       extras: [],                          type: 'jugo' },
+  { name: 'Limonada de Coco',        price: '$10.000', base: 'Jarra',       extras: [],                          type: 'jugo' },
+  { name: 'Limonada de Hierbabuena', price: '$10.000', base: 'Jarra',       extras: [],                          type: 'jugo' },
+  { name: 'Gaseosa',                 price: '$2.500',  base: 'Lata/Vaso',   extras: [],                          type: 'gaseosa' },
   { name: 'Agua Aromática (Té)',     price: '$2.000',  base: 'Taza',        extras: ['Con leche +$1.000'],       type: 'caliente' },
   { name: 'Cerveza Nacional',        price: '$4.500',  base: 'Precio fijo', extras: [],                          type: 'cerveza' },
   { name: 'Cerveza Importada',       price: '$6.000',  base: 'Precio fijo', extras: [],                          type: 'cerveza' },
