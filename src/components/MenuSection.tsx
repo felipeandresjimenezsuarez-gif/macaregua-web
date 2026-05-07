@@ -51,6 +51,13 @@ const MANANAS_BEBIDAS: BebidaItem[] = [
 
 const ALMUERZOS = [
   {
+    name: 'Almuerzo Medio',
+    desc: 'Selección especial para personal autorizado. Un plato completo y satisfactorio.',
+    price: '$20.000',
+    featured: false,
+    img: '/images/almuerzo-medio.jpg',
+  },
+  {
     name: 'Corriente Normal',
     desc: 'El plato tradicional de la casa. Sopa, seco y jugo. La experiencia Macaregua.',
     price: '$22.000',
@@ -63,20 +70,6 @@ const ALMUERZOS = [
     price: '$25.000',
     featured: true,
     img: '/images/foto-sancocho.jpg',
-  },
-  {
-    name: 'Arroz con Pollo',
-    desc: 'Arroz con pollo acompañado de papa amarilla frita.',
-    price: 'A confirmar',
-    featured: false,
-    img: '/images/foto-arroz-pollo.jpg',
-  },
-  {
-    name: 'Arroz de Carnes Mixto',
-    desc: 'Arroz con carnes mixtas acompañado de papa amarilla frita.',
-    price: 'A confirmar',
-    featured: false,
-    img: '/images/foto-arroz-carnes-mixto.jpg',
   },
 ]
 
@@ -101,6 +94,20 @@ const ALMUERZOS_ESPECIALES = [
     price: '$32.000',
     featured: false,
     img: '/images/foto-spaguettis.jpg',
+  },
+  {
+    name: 'Arroz con Pollo',
+    desc: 'Arroz con pollo acompañado de papa amarilla frita.',
+    price: 'A confirmar',
+    featured: false,
+    img: '/images/foto-arroz-pollo.jpg',
+  },
+  {
+    name: 'Arroz de Carnes Mixto',
+    desc: 'Arroz con carnes mixtas acompañado de papa amarilla frita.',
+    price: 'A confirmar',
+    featured: false,
+    img: '/images/foto-arroz-carnes-mixto.jpg',
   },
 ]
 
