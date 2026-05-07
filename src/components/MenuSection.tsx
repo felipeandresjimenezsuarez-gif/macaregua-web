@@ -15,25 +15,25 @@ type BebidaItem  = { name: string; price: string; base: string; extras: string[]
 const MANANAS_FEATURED = [
   {
     name: 'Santandereano de Costilla',
-    desc: 'Costilla asada, caldo de costilla, arepa y bebida. El desayuno premium de la casa.',
+    desc: 'Proteína a elegir: Carne Asada, Lomo de Cerdo o Pechuga a la Plancha. La costilla siempre se sirve en el caldo. Incluye arepa y bebida.',
     price: '$35.000',
     img: '/images/foto-desayunosantandereano-decostilla-carne.jpg',
   },
   {
     name: 'Santandereano',
-    desc: 'Carne asada, caldo, arepa y bebida. El sabor santandereano en Macaregua.',
+    desc: 'Carne asada, Caldo de Huevo, arepa y bebida. El sabor santandereano en Macaregua.',
     price: '$30.000',
     img: '/images/foto-desayunosantandereano-huevo-carne.jpg',
   },
 ]
 
 const MANANAS_ITEMS: PlatoItem[] = [
-  { name: 'Caldo de Costilla', price: '$18.000', base: 'Con bebida',  extras: ['Sin bebida −$2.000'],                    img: '/images/foto-caldo-costilla.jpg' },
-  { name: 'Caldo de Huevo',    price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$2.000', '+ Queso +$2.000'], img: '/images/foto-caldo-huevo.jpg' },
-  { name: 'Huevos al Gusto',   price: '$16.000', base: 'Con bebida',  extras: ['Sin bebida −$3.000'],                    img: '/images/foto-huevos-gusto.jpg' },
-  { name: 'Bandeja de Carne',  price: '$20.000', base: 'Con bebida',  extras: ['Arroz, Ensalada Corriente y Arepa'],      img: '/images/foto-bandeja-carne.jpg' },
-  { name: 'Huevos Rancheros', price: '$16.000', base: 'Con bebida', extras: ['Huevos revueltos con salchicha'],                img: '/images/foto-huevos-rancheros.jpg' },
-  { name: 'Arepa con Queso',  price: '$4.000',  base: 'Unidad',     extras: ['Queso Mozzarella'],                             img: '/images/foto-arepa-queso.jpg' },
+  { name: 'Caldo de Costilla',          price: '$18.000', base: 'Café o chocolate',  extras: ['Sin bebida −$2.000', 'Jugo: costo aparte'],                         img: '/images/foto-caldo-costilla.jpg' },
+  { name: 'Caldo de Huevo',             price: '$16.000', base: 'Café o chocolate',  extras: ['Sin bebida −$2.000', '+ Queso +$2.000', 'Jugo: costo aparte'],      img: '/images/foto-caldo-huevo.jpg' },
+  { name: 'Bandeja de Huevos al Gusto', price: '$16.000', base: 'Café o chocolate',  extras: ['Sin bebida −$3.000', 'Jugo: ítem adicional'],                        img: '/images/foto-huevos-gusto.jpg' },
+  { name: 'Bandeja de Carne',           price: '$20.000', base: 'Café o chocolate',  extras: ['Arroz, Ensalada Corriente y Arepa', 'Jugo: costo aparte'],            img: '/images/foto-bandeja-carne.jpg' },
+  { name: 'Huevos Rancheros',           price: '$16.000', base: 'Café o chocolate',  extras: ['Huevos revueltos con salchicha', 'Jugo: costo aparte'],               img: '/images/foto-huevos-rancheros.jpg' },
+  { name: 'Arepa con Queso',            price: '$4.000',  base: 'Unidad',            extras: ['Queso Mozzarella'],                                                   img: '/images/foto-arepa-queso.jpg' },
 ]
 
 const MANANAS_COMBOS: BebidaItem[] = [
@@ -51,13 +51,6 @@ const MANANAS_BEBIDAS: BebidaItem[] = [
 
 const ALMUERZOS = [
   {
-    name: 'Almuerzo Medio',
-    desc: 'Selección especial para personal autorizado. Un plato completo y satisfactorio.',
-    price: '$20.000',
-    featured: false,
-    img: '/images/foto-arroz-pollo.jpg',
-  },
-  {
     name: 'Corriente Normal',
     desc: 'El plato tradicional de la casa. Sopa, seco y jugo. La experiencia Macaregua.',
     price: '$22.000',
@@ -71,6 +64,20 @@ const ALMUERZOS = [
     featured: true,
     img: '/images/foto-sancocho.jpg',
   },
+  {
+    name: 'Arroz con Pollo',
+    desc: 'Arroz con pollo acompañado de papa amarilla frita.',
+    price: 'A confirmar',
+    featured: false,
+    img: '/images/foto-arroz-pollo.jpg',
+  },
+  {
+    name: 'Arroz de Carnes Mixto',
+    desc: 'Arroz con carnes mixtas acompañado de papa amarilla frita.',
+    price: 'A confirmar',
+    featured: false,
+    img: '/images/foto-arroz-carnes-mixto.jpg',
+  },
 ]
 
 const ALMUERZOS_ESPECIALES = [
@@ -82,9 +89,9 @@ const ALMUERZOS_ESPECIALES = [
     img: '/images/foto-cazuela-frijoles.jpg',
   },
   {
-    name: 'Lasaña',
-    desc: 'Lasaña rellena de champiñones, gratinada al horno. Incluye acompañamientos. Disponible hasta las 2:00 PM.',
-    price: '$32.000',
+    name: 'Lasaña Especial Martes',
+    desc: 'Solo carne y pollo. Tamaño Reducido. Disponible hasta las 2:00 PM.',
+    price: '$25.000',
     featured: false,
     img: '/images/foto-lasagna-nuevaseccionalmuerzoespecial.jpg',
   },
@@ -122,7 +129,7 @@ const ACARTA_MAR: PlatoItem[] = [
 ]
 
 const ACARTA_PASTAS: PlatoItem[] = [
-  { name: 'Lasagna Mixta',           price: '$32.000', base: 'Carne, pollo',    extras: ['Incluye acompañamientos'],               img: '/images/foto-lasagna-.jpg' },
+  { name: 'Lasagna Mixta',           price: '$32.000', base: 'Porción grande · Carne y pollo', extras: ['Papa a la francesa incluida', 'Incluye acompañamientos'], img: '/images/foto-lasagna-.jpg' },
   { name: 'Lasagna Especial',        price: '$38.000', base: 'Champiñón',       extras: ['Incluye acompañamientos'],               img: '/images/foto-lasagna-especial.jpg' },
   { name: 'Pollo Nuggets Marinero',  price: '$42.000', base: 'Acompañamientos', extras: ['Papa a la francesa'],                   img: '/images/Pollo-Nuggets-Marinero.jpg' },
   { name: 'Pollo Nuggets Corriente', price: '$37.000', base: 'Acompañamientos', extras: ['Papa a la francesa'],                   img: '/images/Pollo-Nuggets-corriente.jpg' },
