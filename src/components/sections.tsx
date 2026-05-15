@@ -397,7 +397,8 @@ export function Footer() {
           ))}
         </div>
         <div className="text-right text-[10px] font-light text-[#252525] tracking-wide">
-          © 2026 Restaurante Macaregua · Girón, Santander
+          <div>© 2026 Restaurante Macaregua · Girón, Santander</div>
+          <div className="mt-0.5">Domingos y festivos cerrado</div>
         </div>
       </div>
     </footer>

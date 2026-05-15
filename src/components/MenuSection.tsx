@@ -14,14 +14,14 @@ type BebidaItem  = { name: string; price: string; base: string; extras: string[]
 
 const MANANAS_FEATURED = [
   {
-    name: 'Santandereano de Costilla',
+    name: 'Santandereano de Caldo de Costilla',
     desc: 'Proteína a elegir: Carne Asada, Lomo de Cerdo o Pechuga a la Plancha. La costilla siempre se sirve en el caldo. Incluye arepa y bebida.',
     price: '$35.000',
     img: '/images/foto-desayunosantandereano-decostilla-carne.jpg',
   },
   {
     name: 'Santandereano',
-    desc: 'Carne asada, Caldo de Huevo, arepa y bebida. El sabor santandereano en Macaregua.',
+    desc: 'Incluye Caldo de Huevo. Proteína a elegir: Carne Asada, Lomo de Cerdo o Pechuga a la Plancha. Incluye arepa y bebida. El sabor santandereano en Macaregua.',
     price: '$30.000',
     img: '/images/foto-desayunosantandereano-huevo-carne.jpg',
   },
@@ -30,9 +30,8 @@ const MANANAS_FEATURED = [
 const MANANAS_ITEMS: PlatoItem[] = [
   { name: 'Caldo de Costilla',          price: '$18.000', base: 'Café o chocolate',  extras: ['Sin bebida −$2.000', 'Jugo: costo aparte'],                         img: '/images/foto-caldo-costilla.jpg' },
   { name: 'Caldo de Huevo',             price: '$16.000', base: 'Café o chocolate',  extras: ['Sin bebida −$2.000', '+ Queso +$2.000', 'Jugo: costo aparte'],      img: '/images/foto-caldo-huevo.jpg' },
-  { name: 'Bandeja de Huevos al Gusto', price: '$16.000', base: 'Café o chocolate',  extras: ['Sin bebida −$3.000', 'Jugo: ítem adicional'],                        img: '/images/foto-huevos-gusto.jpg' },
+  { name: 'Bandeja de Huevos al Gusto', price: '$16.000', base: 'Café o chocolate',  extras: ['Sin bebida −$3.000'],                                                  img: '/images/foto-huevos-gusto.jpg' },
   { name: 'Bandeja de Carne',           price: '$20.000', base: 'Café o chocolate',  extras: ['Arroz, Ensalada Corriente y Arepa', 'Jugo: costo aparte'],            img: '/images/foto-bandeja-carne.jpg' },
-  { name: 'Huevos Rancheros',           price: '$16.000', base: 'Café o chocolate',  extras: ['Huevos revueltos con salchicha', 'Jugo: costo aparte'],               img: '/images/foto-huevos-rancheros.jpg' },
   { name: 'Arepa con Queso',            price: '$4.000',  base: 'Unidad',            extras: ['Queso Mozzarella'],                                                   img: '/images/foto-arepa-queso.jpg' },
 ]
 
@@ -89,11 +88,18 @@ const ALMUERZOS_ESPECIALES = [
     img: '/images/foto-lasagna-nuevaseccionalmuerzoespecial.jpg',
   },
   {
-    name: 'Espaguetis',
-    desc: 'Salsa artesanal, queso gratinado y papa criolla frita.',
+    name: 'Espaguetis Mixtos',
+    desc: 'Salsa de carne molida, pollo desmechado y queso parmesano. Solo los miércoles.',
     price: '$32.000',
     featured: false,
     img: '/images/foto-spaguettis.jpg',
+  },
+  {
+    name: 'Cazuela Mariscos',
+    desc: 'Plato especial de la casa. Solo los viernes. Precio y contenido se confirman al ordenar.',
+    price: 'A confirmar',
+    featured: false,
+    img: '/images/foto-cazuela-mariscos.jpg',
   },
   {
     name: 'Arroz con Pollo',
@@ -189,17 +195,28 @@ const OTROS: PlatoItem[] = [
 
 // ─── BEBIDAS ─────────────────────────────────────────────────────────────────
 
-const BEBIDAS: BebidaItem[] = [
-  { name: 'Agua (Botella)',           price: '$3.000',  base: 'Precio fijo', extras: [],                          type: 'agua' },
-  { name: 'Leche',                   price: '$8.000',  base: 'Vaso',        extras: [],                          type: 'caliente' },
-  { name: 'Jugo Natural',            price: '$7.000',  base: 'Vaso',        extras: [],                          type: 'jugo' },
-  { name: 'Limonada Natural',        price: '$7.000',  base: 'Jarra',       extras: [],                          type: 'jugo' },
-  { name: 'Limonada de Coco',        price: '$10.000', base: 'Jarra',       extras: [],                          type: 'jugo' },
-  { name: 'Limonada de Hierbabuena', price: '$10.000', base: 'Jarra',       extras: [],                          type: 'jugo' },
-  { name: 'Gaseosa',                 price: '$2.500',  base: 'Lata/Vaso',   extras: [],                          type: 'gaseosa' },
-  { name: 'Agua Aromática (Té)',     price: '$2.000',  base: 'Taza',        extras: ['Con leche +$1.000'],       type: 'caliente' },
-  { name: 'Cerveza Nacional',        price: '$4.500',  base: 'Precio fijo', extras: [],                          type: 'cerveza' },
-  { name: 'Cerveza Importada',       price: '$6.000',  base: 'Precio fijo', extras: [],                          type: 'cerveza' },
+const BEBIDAS_BASE: BebidaItem[] = [
+  { name: 'Agua 600ml',              price: '$4.000',  base: 'Botella',   extras: [],                    type: 'agua' },
+  { name: 'Gaseosa',                 price: '$4.000',  base: 'Lata/Vaso', extras: [],                    type: 'gaseosa' },
+  { name: 'Jugo de Agua',            price: '$7.000',  base: 'Vaso',      extras: [],                    type: 'jugo' },
+  { name: 'Jugo con Leche',          price: '$8.000',  base: 'Vaso',      extras: [],                    type: 'jugo' },
+  { name: 'Limonada Natural',        price: '$7.000',  base: 'Jarra',     extras: [],                    type: 'jugo' },
+  { name: 'Limonada de Coco',        price: '$10.000', base: 'Jarra',     extras: [],                    type: 'jugo' },
+  { name: 'Limonada de Hierbabuena', price: '$10.000', base: 'Jarra',     extras: [],                    type: 'jugo' },
+  { name: 'Leche',                   price: '$8.000',  base: 'Vaso',      extras: [],                    type: 'caliente' },
+  { name: 'Agua Aromática (Té)',     price: '$2.000',  base: 'Taza',      extras: ['Con leche +$1.000'], type: 'caliente' },
+]
+
+const CERVEZAS_NACIONALES: BebidaItem[] = [
+  { name: 'Cerveza Nacional',  price: '$4.500',  base: 'Nacional', extras: [], type: 'cerveza' },
+]
+
+const CERVEZAS_IMPORTADAS: BebidaItem[] = [
+  { name: 'Coronita',         price: '$5.000',  base: 'Importada', extras: [], type: 'cerveza' },
+  { name: 'Heineken Pequeña', price: '$4.500',  base: 'Importada', extras: [], type: 'cerveza' },
+  { name: 'Budweiser',        price: '$4.000',  base: 'Importada', extras: [], type: 'cerveza' },
+  { name: 'Stella Artois',    price: '$9.000',  base: 'Importada', extras: [], type: 'cerveza' },
+  { name: 'Smirnoff Ice',     price: '$10.000', base: 'Importada', extras: [], type: 'cerveza' },
 ]
 
 const MOCKTAILS: BebidaItem[] = [
@@ -649,7 +666,7 @@ export default function MenuSection() {
               ))}
             </div>
 
-            <SectionLabel>Almuerzos Especiales</SectionLabel>
+            <SectionLabel>Almuerzos</SectionLabel>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {ALMUERZOS_ESPECIALES.map((p) => (
                 <div key={p.name}
@@ -858,9 +875,11 @@ export default function MenuSection() {
       ══════════════════════════════════════════════════════════════ */}
       {active === 5 && (
         <div>
+
+          {/* ── Bebidas no alcohólicas ── */}
           <InfoBox>
-            <span className="text-[#D4A017] font-normal">Sin alcohol, con todo el sabor.</span>{' '}
-            Mocktails artesanales, sodas refrescantes y bebidas Hatsu. Disponibles todo el día.
+            <span className="text-[#D4A017] font-normal">Bebidas sin alcohol.</span>{' '}
+            Mocktails artesanales, sodas, jugos y bebidas Hatsu. Disponibles todo el día.
           </InfoBox>
 
           <SectionLabel>Mocktails — $16.000</SectionLabel>
@@ -883,10 +902,28 @@ export default function MenuSection() {
             {TE_HATSU.map((b) => <BebidaRow key={b.name} b={b} />)}
           </div>
 
-          <SectionLabel>Bebidas</SectionLabel>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
-            {BEBIDAS.map((b) => <BebidaRow key={b.name} b={b} />)}
+          <SectionLabel>Jugos & Bebidas</SectionLabel>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden mb-10">
+            {BEBIDAS_BASE.map((b) => <BebidaRow key={b.name} b={b} />)}
           </div>
+
+          {/* ── Cervezas ── */}
+          <div className="flex items-center gap-3 mb-4 mt-2">
+            <div className="h-px flex-1 bg-[#1a1a1a]" />
+            <span className="text-[11px] font-light text-[#D4A017] tracking-widest uppercase">Cervezas</span>
+            <div className="h-px flex-1 bg-[#1a1a1a]" />
+          </div>
+
+          <SectionLabel>Nacional</SectionLabel>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden mb-6">
+            {CERVEZAS_NACIONALES.map((b) => <BebidaRow key={b.name} b={b} />)}
+          </div>
+
+          <SectionLabel>Importadas</SectionLabel>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] rounded overflow-hidden">
+            {CERVEZAS_IMPORTADAS.map((b) => <BebidaRow key={b.name} b={b} />)}
+          </div>
+
         </div>
       )}
     </section>
