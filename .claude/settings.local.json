@@ -27,7 +27,13 @@
       "Bash(convert --version)",
       "Bash(node -e \"const sharp = require\\('sharp'\\); console.log\\('sharp ok'\\);\")",
       "Bash(npx tsc *)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(awk '{print $NF}')",
+      "Bash(read path *)",
+      "Bash([ -f \"public$path\" ])",
+      "Bash(git rm *)",
+      "Bash(dir C:\\\\Users\\\\usuario\\\\Desktop\\\\01_AGENCIA_CORE\\\\01_PROYECTOS_ACTIVOS\\\\macaregua PC\\\\macaregua-web\\\\public\\\\images *)",
+      "Bash(npx vercel *)"
     ]
   }
 }

@@ -96,8 +96,8 @@ const ALMUERZOS_ESPECIALES = [
   },
   {
     name: 'Ajiaco',
-    desc: 'Sopa nacional con papas, maíz chulupo y carne. Solo los viernes.',
-    price: 'A confirmar',
+    desc: 'Sopa nacional con papas, maíz chulupo y pollo.',
+    price: '$32.000',
     featured: false,
     img: '/images/foto-cazuela-mariscos.jpg',
   },
@@ -123,7 +123,7 @@ const ACARTA_CARNES: PlatoItem[] = [
   { name: 'Chatas',             price: '$48.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-chatas.jpg' },
   { name: 'Carne a la Plancha', price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-carne-guisada-asada.jpg' },
   { name: 'Cerdo a la Plancha', price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-cerdo-plancha.jpg' },
-  { name: 'Sobrebarriga',       price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-sobrebarriga.jpg' },
+  { name: 'Sobrebarriga',       price: '$40.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-sobrebarriga.jpg' },
   { name: 'Milanesa de Carne', price: '$34.000', base: 'Res apanada',     extras: ['Queso mozzarella fundido', 'Papa a la francesa'],  img: '/images/foto-milanesa-carne.jpg' },
 ]
 
@@ -133,12 +133,12 @@ const ACARTA_AVES: PlatoItem[] = [
 ]
 
 const ACARTA_MAR: PlatoItem[] = [
-  { name: 'Mojarra Frita',        price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-mojarra.jpg' },
+  { name: 'Mojarra Frita',        price: '$35.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-mojarra.jpg' },
   { name: 'Bagre Frito',          price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-bagre-frito.jpg' },
   { name: 'Bagre Sudado',         price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-bagre-sudado.jpg' },
   { name: 'Cazuela de Mariscos',  price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-mariscos.jpg' },
-  { name: 'Cazuela de Camarones', price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-camarones.jpg' },
-  { name: 'Cazuela Mixta',        price: '$38.000', base: 'Bagre · Camarón', extras: ['Arroz, ensalada, papa a la francesa o patacón'], img: '/images/foto-cazuela-mixta.jpg' },
+  { name: 'Cazuela de Camarones', price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-camarones.jpg' },
+  { name: 'Cazuela Mixta',        price: '$42.000', base: 'Bagre · Camarón', extras: ['Arroz, ensalada, papa a la francesa o patacón'], img: '/images/foto-cazuela-mixta.jpg' },
 ]
 
 const ACARTA_PASTAS: PlatoItem[] = [
