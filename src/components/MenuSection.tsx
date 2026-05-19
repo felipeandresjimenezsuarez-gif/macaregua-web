@@ -95,8 +95,8 @@ const ALMUERZOS_ESPECIALES = [
     img: '/images/foto-spaguettis.jpg',
   },
   {
-    name: 'Cazuela Mariscos',
-    desc: 'Plato especial de la casa. Solo los viernes. Precio y contenido se confirman al ordenar.',
+    name: 'Ajiaco',
+    desc: 'Sopa nacional con papas, maíz chulupo y carne. Solo los viernes.',
     price: 'A confirmar',
     featured: false,
     img: '/images/foto-cazuela-mariscos.jpg',
@@ -104,14 +104,14 @@ const ALMUERZOS_ESPECIALES = [
   {
     name: 'Arroz con Pollo',
     desc: 'Arroz con pollo acompañado de papa amarilla frita.',
-    price: 'A confirmar',
+    price: '$32.000',
     featured: false,
     img: '/images/foto-arroz-pollo.jpg',
   },
   {
     name: 'Arroz de Carnes Mixto',
     desc: 'Arroz con carnes mixtas acompañado de papa amarilla frita.',
-    price: 'A confirmar',
+    price: '$32.000',
     featured: false,
     img: '/images/foto-arroz-carnes-mixto.jpg',
   },
