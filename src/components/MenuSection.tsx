@@ -81,8 +81,8 @@ const ALMUERZOS_ESPECIALES = [
     img: '/images/foto-cazuela-frijoles.jpg',
   },
   {
-    name: 'Lasaña Especial Martes',
-    desc: 'Solo carne y pollo. Tamaño Reducido. Disponible hasta las 2:00 PM.',
+    name: 'Lasaña Especial',
+    desc: 'Solo carne y pollo. Tamaño Reducido. Disponible hasta las 2:00 PM. Solo los martes.',
     price: '$25.000',
     featured: false,
     img: '/images/foto-lasagna-nuevaseccionalmuerzoespecial.jpg',
@@ -96,28 +96,28 @@ const ALMUERZOS_ESPECIALES = [
   },
   {
     name: 'Ajiaco',
-    desc: 'Sopa nacional con papas, maíz chulupo y pollo.',
+    desc: 'Sopa nacional con papas, maíz chulupo y pollo. Disponible según el día — consulta con tu mesero.',
     price: '$32.000',
     featured: false,
     img: '/images/foto-caldo-pollo.jpg',
   },
   {
     name: 'Sancocho',
-    desc: 'Sancocho de la casa con papa, yuca, plátano y carne. Un clásico del campo colombiano.',
+    desc: 'Sancocho de la casa con papa, yuca, plátano y carne. Disponible según el día — consulta con tu mesero.',
     price: '$32.000',
     featured: false,
     img: '/images/foto-sancocho.jpg',
   },
   {
     name: 'Arroz con Pollo',
-    desc: 'Arroz con pollo acompañado de papa amarilla frita.',
+    desc: 'Arroz con pollo acompañado de papa amarilla frita. Disponible según el día — consulta con tu mesero.',
     price: '$32.000',
     featured: false,
     img: '/images/foto-arroz-pollo.jpg',
   },
   {
     name: 'Arroz de Carnes Mixto',
-    desc: 'Arroz con carnes mixtas acompañado de papa amarilla frita.',
+    desc: 'Arroz con carnes mixtas acompañado de papa amarilla frita. Disponible según el día — consulta con tu mesero.',
     price: '$32.000',
     featured: false,
     img: '/images/foto-arroz-carnes-mixto.jpg',
@@ -673,7 +673,7 @@ export default function MenuSection() {
               ))}
             </div>
 
-            <SectionLabel>Almuerzos</SectionLabel>
+            <SectionLabel>Almuerzos Especiales</SectionLabel>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {ALMUERZOS_ESPECIALES.map((p) => (
                 <div key={p.name}
