@@ -1,0 +1,6 @@
+export { default as StatsBar } from './StatsBar'
+export { AboutSection } from './sections'
+export { GMBSection } from './sections'
+export { WhatsAppSection } from './sections'
+export { ReviewsSection } from './sections'
+export { WhatsAppFloat } from './sections'
