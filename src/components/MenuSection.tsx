@@ -99,7 +99,14 @@ const ALMUERZOS_ESPECIALES = [
     desc: 'Sopa nacional con papas, maíz chulupo y pollo.',
     price: '$32.000',
     featured: false,
-    img: '/images/foto-cazuela-mariscos.jpg',
+    img: '/images/foto-caldo-pollo.jpg',
+  },
+  {
+    name: 'Sancocho',
+    desc: 'Sancocho de la casa con papa, yuca, plátano y carne. Un clásico del campo colombiano.',
+    price: '$32.000',
+    featured: false,
+    img: '/images/foto-sancocho.jpg',
   },
   {
     name: 'Arroz con Pollo',
@@ -136,7 +143,7 @@ const ACARTA_MAR: PlatoItem[] = [
   { name: 'Mojarra Frita',        price: '$35.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-mojarra.jpg' },
   { name: 'Bagre Frito',          price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-bagre-frito.jpg' },
   { name: 'Bagre Sudado',         price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-bagre-sudado.jpg' },
-  { name: 'Cazuela de Mariscos',  price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-mariscos.jpg' },
+  { name: 'Cazuela de Mariscos',  price: '$36.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-mariscos.jpg' },
   { name: 'Cazuela de Camarones', price: '$38.000', base: 'Acompañamientos', extras: ['Arroz, ensalada, papa o patacón'], img: '/images/foto-cazuela-camarones.jpg' },
   { name: 'Cazuela Mixta',        price: '$42.000', base: 'Bagre · Camarón', extras: ['Arroz, ensalada, papa a la francesa o patacón'], img: '/images/foto-cazuela-mixta.jpg' },
 ]
