@@ -66,7 +66,7 @@ const schema = {
     addressRegion: 'Santander',
     addressCountry: 'CO',
   },
-  telephone: '+577676071905',
+  telephone: '+576076161215',
   openingHours: 'Mo-Sa 06:30-22:30',
   aggregateRating: {
     '@type': 'AggregateRating',

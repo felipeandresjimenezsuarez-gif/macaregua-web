@@ -108,7 +108,7 @@ export function GMBSection() {
                 <div className="flex flex-col gap-2.5">
                   {[
                     ['M', 'Vía Chimita #Km 1, Girón, Santander'],
-                    ['T', '767 60 719'],
+                    ['T', '607 616 1215'],
                     ['W', '+57 305 201 5683'],
                   ].map(([type, text]) => (
                     <div key={text} className="flex items-start gap-2.5">
@@ -129,7 +129,7 @@ export function GMBSection() {
                     className="text-[11px] text-center py-2 border border-[#222] text-[#ccc] rounded-sm hover:border-[#D4A017] hover:text-[#D4A017] transition-colors">
                     Cómo llegar
                   </a>
-                  <a href="tel:+577676071905"
+                  <a href="tel:+576076161215"
                     className="text-[11px] text-center py-2 border border-[#222] text-[#ccc] rounded-sm hover:border-[#D4A017] hover:text-[#D4A017] transition-colors">
                     Llamar
                   </a>

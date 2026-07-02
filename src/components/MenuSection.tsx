@@ -28,9 +28,9 @@ const MANANAS_FEATURED = [
 ]
 
 const MANANAS_ITEMS: PlatoItem[] = [
-  { name: 'Caldo de Costilla',          price: '$18.000', base: 'Café o chocolate',  extras: ['Sin bebida −$2.000', 'Jugo: costo aparte'],                         img: '/images/foto-caldo-costilla.jpg' },
-  { name: 'Caldo de Huevo',             price: '$16.000', base: 'Café o chocolate',  extras: ['Sin bebida −$2.000', '+ Queso +$2.000', 'Jugo: costo aparte'],      img: '/images/foto-caldo-huevo.jpg' },
-  { name: 'Bandeja de Huevos al Gusto', price: '$16.000', base: 'Café o chocolate',  extras: ['Sin bebida −$3.000'],                                                  img: '/images/foto-huevos-gusto.jpg' },
+  { name: 'Caldo de Costilla',          price: '$18.000', base: 'Café o chocolate',  extras: ['Jugo: costo aparte'],                         img: '/images/foto-caldo-costilla.jpg' },
+  { name: 'Caldo de Huevo',             price: '$16.000', base: 'Café o chocolate',  extras: ['+ Queso +$2.000', 'Jugo: costo aparte'],      img: '/images/foto-caldo-huevo.jpg' },
+  { name: 'Bandeja de Huevos al Gusto', price: '$16.000', base: 'Café o chocolate',  extras: [],                                                  img: '/images/foto-huevos-gusto.jpg' },
   { name: 'Bandeja de Carne',           price: '$20.000', base: 'Café o chocolate',  extras: ['Arroz, Ensalada Corriente y Arepa', 'Jugo: costo aparte'],            img: '/images/foto-bandeja-carne.jpg' },
   { name: 'Arepa con Queso',            price: '$4.000',  base: 'Unidad',            extras: ['Queso Mozzarella'],                                                   img: '/images/foto-arepa-queso.jpg' },
 ]
@@ -96,14 +96,14 @@ const ALMUERZOS_ESPECIALES = [
   },
   {
     name: 'Ajiaco',
-    desc: 'Sopa nacional con papas, maíz chulupo y pollo. Disponible según el día — consulta con tu mesero.',
+    desc: 'Sopa nacional con papas, maíz y pollo. Disponible según el día — consulta con tu mesero.',
     price: '$32.000',
     featured: false,
     img: '/images/foto-caldo-pollo.jpg',
   },
   {
-    name: 'Sancocho',
-    desc: 'Sancocho de la casa con papa, yuca, plátano y carne. Disponible según el día — consulta con tu mesero.',
+    name: 'Sancocho de Costilla',
+    desc: 'Sancocho de costilla con papa, yuca, plátano y carne. Disponible según el día — consulta con tu mesero.',
     price: '$32.000',
     featured: false,
     img: '/images/foto-sancocho.jpg',
@@ -130,8 +130,8 @@ const ACARTA_CARNES: PlatoItem[] = [
   { name: 'Chatas',             price: '$48.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-chatas.jpg' },
   { name: 'Carne a la Plancha', price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-carne-guisada-asada.jpg' },
   { name: 'Cerdo a la Plancha', price: '$34.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-cerdo-plancha.jpg' },
-  { name: 'Sobrebarriga',       price: '$40.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-sobrebarriga.jpg' },
-  { name: 'Milanesa de Carne', price: '$34.000', base: 'Res apanada',     extras: ['Queso mozzarella fundido', 'Papa a la francesa'],  img: '/images/foto-milanesa-carne.jpg' },
+  { name: 'Sobrebarriga',       price: '$42.000', base: 'Acompañamientos', extras: ['Arroz, papa a la francesa, ensalada'], img: '/images/foto-sobrebarriga.jpg' },
+  { name: 'Milanesa de Carne', price: '$48.000', base: 'Res apanada',     extras: ['Queso mozzarella fundido', 'Papa a la francesa'],  img: '/images/foto-milanesa-carne.jpg' },
 ]
 
 const ACARTA_AVES: PlatoItem[] = [
@@ -150,10 +150,10 @@ const ACARTA_MAR: PlatoItem[] = [
 
 const ACARTA_PASTAS: PlatoItem[] = [
   { name: 'Lasagna Mixta',           price: '$32.000', base: 'Porción grande · Carne y pollo', extras: ['Papa a la francesa incluida', 'Incluye acompañamientos'], img: '/images/foto-lasagna-.jpg' },
-  { name: 'Lasagna Especial',        price: '$38.000', base: 'Champiñón',       extras: ['Incluye acompañamientos'],               img: '/images/foto-lasagna-especial.jpg' },
+  { name: 'Lasagna Especial',        price: '$38.000', base: 'Camarón, Carne y Pollo', extras: ['Papa a la francesa', 'Incluye acompañamientos'],               img: '/images/foto-lasagna-especial.jpg' },
   { name: 'Pollo Nuggets Marinero',  price: '$42.000', base: 'Acompañamientos', extras: ['Papa a la francesa'],                   img: '/images/Pollo-Nuggets-Marinero.jpg' },
   { name: 'Pollo Nuggets Corriente', price: '$37.000', base: 'Acompañamientos', extras: ['Papa a la francesa'],                   img: '/images/Pollo-Nuggets-corriente.jpg' },
-  { name: 'Espaguetis',        price: '$32.000', base: 'Salsa artesanal', extras: ['Queso gratinado', 'Papa criolla frita'],        img: '/images/foto-spaguettis.jpg' },
+  { name: 'Espaguetis',        price: '$32.000', base: 'A elegir: Carne, Pollo o Mixtos', extras: ['Queso parmesano', 'Papa criolla frita'],        img: '/images/foto-spaguettis.jpg' },
 ]
 
 // ─── PIZZAS ───────────────────────────────────────────────────────────────────
@@ -234,7 +234,7 @@ const MOCKTAILS: BebidaItem[] = [
 ]
 
 const SODAS_REFRESCANTES: BebidaItem[] = [
-  { name: 'Frutos Rojos',     price: '$14.000', base: 'Soda Artesanal', extras: ['Fresa · Maracuyá'],        type: 'soda' },
+  { name: 'Frutos Rojos',     price: '$14.000', base: 'Soda Artesanal', extras: ['Fresa · Menta · Cereza'],        type: 'soda' },
   { name: 'Frutos Amarillos', price: '$14.000', base: 'Soda Artesanal', extras: ['Maracuyá · Piña · Limón'], type: 'soda' },
 ]
 
