@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Merriweather, DM_Sans } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import ScrollReveal from '@/components/ScrollReveal'
 import './globals.css'
 
@@ -92,6 +93,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <ScrollReveal />
         {children}
+        <Analytics />
       </body>
     </html>
   )
